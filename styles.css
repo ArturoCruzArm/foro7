@@ -126,6 +126,26 @@ body {
     box-shadow: 0 7px 25px rgba(231, 76, 60, 0.4);
 }
 
+/* Hero Rating */
+.hero-rating {
+    margin: 20px 0;
+}
+
+.hero-rating .stars {
+    margin-bottom: 10px;
+}
+
+.hero-rating .stars i {
+    color: #ffd700;
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+
+.hero-rating span {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+}
+
 /* Services Section */
 .services {
     padding: 100px 0;
@@ -135,8 +155,18 @@ body {
 .services h2 {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     color: #333;
+}
+
+.services-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 60px;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .services-grid {
@@ -252,6 +282,103 @@ body {
 .placeholder-image p {
     font-size: 1.1rem;
     font-weight: bold;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.testimonials h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: #333;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-content .stars {
+    margin-bottom: 15px;
+}
+
+.testimonial-content .stars i {
+    color: #ffd700;
+    font-size: 1rem;
+    margin-right: 3px;
+}
+
+.testimonial-content p {
+    color: #555;
+    font-style: italic;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.testimonial-author strong {
+    color: #333;
+    font-size: 1rem;
+}
+
+.testimonial-author span {
+    color: #666;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 5px;
+}
+
+.rating-summary {
+    text-align: center;
+}
+
+.rating-number {
+    display: inline-block;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.big-rating {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #e74c3c;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.rating-number .stars {
+    margin-bottom: 10px;
+}
+
+.rating-number .stars i {
+    color: #ffd700;
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+
+.rating-number p {
+    color: #666;
+    font-size: 1rem;
 }
 
 /* Contact Section */
@@ -395,7 +522,8 @@ footer {
     }
     
     .services-grid,
-    .gallery-grid {
+    .gallery-grid,
+    .testimonials-grid {
         grid-template-columns: 1fr;
     }
     
@@ -420,12 +548,14 @@ footer {
     
     .services,
     .gallery,
+    .testimonials,
     .contact {
         padding: 60px 0;
     }
     
     .services h2,
     .gallery h2,
+    .testimonials h2,
     .contact h2 {
         font-size: 2rem;
     }
