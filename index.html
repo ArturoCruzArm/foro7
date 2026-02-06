@@ -217,7 +217,437 @@
             gap: 80px;
             align-items: center;
         }
-        .hero-text { animation: fadeInUp 1s ease-out 0.5s both; }
+        .hero-text {
+            perspective: 1000px;
+        }
+
+        /* Estados iniciales para animaciones Anime.js */
+        .hero-tag,
+        .hero h1,
+        .hero-description,
+        .hero-buttons .btn {
+            opacity: 0;
+        }
+
+        .hero h1 .char {
+            display: inline-block;
+            opacity: 0;
+            transform-style: preserve-3d;
+        }
+
+        .hero h1 .highlight {
+            color: var(--secondary);
+            font-style: italic;
+        }
+
+        /* Stat Cards 3D */
+        .hero-stats {
+            perspective: 1500px;
+        }
+
+        .stat-card {
+            opacity: 0;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+            cursor: pointer;
+        }
+
+        .stat-card .stat-inner {
+            transform-style: preserve-3d;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Particulas flotantes */
+        .hero-particles {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0;
+        }
+
+        /* Lineas decorativas animadas */
+        .hero-lines {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .hero-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            height: 1px;
+            width: 200px;
+            opacity: 0.3;
+        }
+
+        /* Efecto glow en titulo */
+        .hero h1 {
+            text-shadow: 0 0 0 transparent;
+            transition: text-shadow 0.5s;
+        }
+
+        .hero h1.glow {
+            text-shadow: 0 0 40px rgba(212,175,55,0.3), 0 0 80px rgba(212,175,55,0.1);
+        }
+
+        /* Floating badge */
+        .hero-badge {
+            position: absolute;
+            top: 20%;
+            right: 5%;
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            opacity: 0;
+            z-index: 3;
+        }
+
+        .hero-badge span {
+            color: var(--secondary);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-badge strong {
+            color: #fff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+        }
+
+        /* ========== ANIMACIONES 3D GLOBALES ========== */
+
+        /* Section Headers Animation */
+        .section-header {
+            perspective: 1000px;
+        }
+
+        .section-tag,
+        .section-title,
+        .section-subtitle {
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        /* Services Cards 3D */
+        .services-grid {
+            perspective: 2000px;
+        }
+
+        .service-card {
+            opacity: 0;
+            transform: translateY(100px) rotateX(15deg);
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotateY(360deg);
+        }
+
+        /* Packages Cards 3D */
+        .packages-grid {
+            perspective: 2000px;
+        }
+
+        .package-card {
+            opacity: 0;
+            transform: translateZ(-200px) rotateY(25deg);
+            transform-style: preserve-3d;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s;
+        }
+
+        .package-card.featured {
+            transform: translateZ(-200px) scale(1.05);
+        }
+
+        .package-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 40%, rgba(212,175,55,0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        .package-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Videos Cards 3D */
+        .videos-grid {
+            perspective: 2000px;
+        }
+
+        .video-card {
+            opacity: 0;
+            transform: scale(0.8) rotateY(-15deg);
+            transform-style: preserve-3d;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .video-card img {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .video-card:hover img {
+            transform: scale(1.15);
+        }
+
+        .video-play {
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .video-card:hover .video-play {
+            transform: scale(1.3);
+            background: var(--secondary);
+        }
+
+        /* Gallery Items 3D */
+        .gallery-grid {
+            perspective: 2000px;
+        }
+
+        .gallery-item {
+            opacity: 0;
+            transform: scale(0.7) translateZ(-100px);
+            transform-style: preserve-3d;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s;
+        }
+
+        .gallery-item img {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s;
+        }
+
+        .gallery-item:hover {
+            z-index: 10;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-zoom {
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-zoom {
+            transform: scale(1.2) rotate(90deg);
+        }
+
+        /* Events Cards 3D */
+        .events-grid {
+            perspective: 2000px;
+        }
+
+        .event-card {
+            opacity: 0;
+            transform: translateY(80px) rotateX(10deg);
+            transform-style: preserve-3d;
+            transition: transform 0.4s, box-shadow 0.4s, opacity 0.4s;
+        }
+
+        .filter-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .filter-btn:hover::before,
+        .filter-btn.active::before {
+            width: 100%;
+        }
+
+        /* Testimonials 3D */
+        .testimonials-slider {
+            perspective: 1500px;
+        }
+
+        .testimonial-card {
+            opacity: 0;
+            transform: translateX(-100px) rotateY(-20deg);
+            transform-style: preserve-3d;
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .testimonial-quote {
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 4rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .testimonial-stars i {
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        /* Contact Section 3D */
+        .contact-grid {
+            perspective: 2000px;
+        }
+
+        .contact-info,
+        .contact-form {
+            opacity: 0;
+            transform: translateZ(-150px);
+        }
+
+        .contact-info {
+            transform: translateX(-100px) rotateY(-10deg);
+        }
+
+        .contact-form {
+            transform: translateX(100px) rotateY(10deg);
+        }
+
+        .contact-item {
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px) scale(1.02);
+        }
+
+        /* Form inputs animation */
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(212,175,55,0.2);
+        }
+
+        /* Floating elements decoration */
+        .floating-decoration {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(212,175,55,0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Mouse follower glow */
+        .section-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        body:hover .section-glow {
+            opacity: 1;
+        }
+
+        /* Reveal animations for scroll */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-100px) rotateY(-15deg);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(100px) rotateY(15deg);
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(100px) rotateX(15deg);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
         .hero-tag {
             display: inline-flex;
             align-items: center;
@@ -293,7 +723,7 @@
 
         .hero-visual {
             position: relative;
-            animation: fadeInUp 1s ease-out 0.8s both;
+            /* Usamos Anime.js para las animaciones */
         }
         .hero-stats {
             display: grid;
@@ -1169,6 +1599,18 @@
         <section id="inicio" class="hero">
             <div class="hero-bg"></div>
             <div class="hero-overlay"></div>
+
+            <!-- Particulas flotantes -->
+            <div class="hero-particles" id="particles"></div>
+
+            <!-- Lineas decorativas -->
+            <div class="hero-lines" id="heroLines"></div>
+
+            <!-- Badge flotante -->
+            <div class="hero-badge">
+                <span>Desde</span>
+                <strong>2009</strong>
+            </div>
             <div class="hero-content">
                 <div class="hero-text">
                     <div class="hero-tag">Leon, Guanajuato</div>
@@ -1807,6 +2249,656 @@
             if (e.key === 'Escape') lightbox.classList.remove('active');
             if (e.key === 'ArrowLeft') document.querySelector('.lightbox-prev').click();
             if (e.key === 'ArrowRight') document.querySelector('.lightbox-next').click();
+        });
+    </script>
+
+    <!-- Anime.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <script>
+        // ========== ANIMACIONES 3D COMPLETAS CON ANIME.JS ==========
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // === MOUSE GLOW FOLLOWER ===
+            const glow = document.createElement('div');
+            glow.className = 'section-glow';
+            document.body.appendChild(glow);
+
+            document.addEventListener('mousemove', (e) => {
+                anime({
+                    targets: glow,
+                    left: e.clientX + 'px',
+                    top: e.clientY + 'px',
+                    duration: 500,
+                    easing: 'easeOutQuad'
+                });
+            });
+
+            // === CREAR PARTICULAS FLOTANTES ===
+            const particlesContainer = document.getElementById('particles');
+            if (particlesContainer) {
+                for (let i = 0; i < 50; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.width = (Math.random() * 4 + 2) + 'px';
+                    particle.style.height = particle.style.width;
+                    particlesContainer.appendChild(particle);
+                }
+
+                anime({
+                    targets: '.particle',
+                    translateY: () => anime.random(-100, 100),
+                    translateX: () => anime.random(-50, 50),
+                    opacity: [0, () => anime.random(0.3, 0.8), 0],
+                    scale: [0, 1, 0],
+                    duration: () => anime.random(3000, 6000),
+                    delay: () => anime.random(0, 3000),
+                    loop: true,
+                    easing: 'easeInOutSine'
+                });
+            }
+
+            // === CREAR LINEAS DECORATIVAS ===
+            const linesContainer = document.getElementById('heroLines');
+            if (linesContainer) {
+                for (let i = 0; i < 5; i++) {
+                    const line = document.createElement('div');
+                    line.className = 'hero-line';
+                    line.style.top = (20 + i * 15) + '%';
+                    line.style.left = '-200px';
+                    linesContainer.appendChild(line);
+                }
+
+                anime({
+                    targets: '.hero-line',
+                    translateX: ['0vw', '120vw'],
+                    opacity: [0, 0.5, 0],
+                    duration: 4000,
+                    delay: anime.stagger(800),
+                    loop: true,
+                    easing: 'linear'
+                });
+            }
+
+            // === PREPARAR TEXTO HERO ===
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                const html = heroTitle.innerHTML;
+                heroTitle.innerHTML = html.replace(/(<[^>]+>)|(.)/g, (match, tag, char) => {
+                    if (tag) return tag;
+                    if (char === ' ') return ' ';
+                    return `<span class="char">${char}</span>`;
+                });
+            }
+
+            // === TIMELINE HERO ===
+            const heroTimeline = anime.timeline({ easing: 'easeOutExpo' });
+
+            heroTimeline
+                .add({
+                    targets: '.hero-tag',
+                    translateX: [-80, 0],
+                    translateZ: [100, 0],
+                    rotateY: [-15, 0],
+                    opacity: [0, 1],
+                    duration: 1000,
+                    easing: 'easeOutBack'
+                }, 400)
+                .add({
+                    targets: '.hero h1 .char',
+                    translateY: [100, 0],
+                    translateZ: [300, 0],
+                    rotateX: [-90, 0],
+                    opacity: [0, 1],
+                    duration: 1400,
+                    delay: anime.stagger(30, {from: 'center'}),
+                    complete: () => heroTitle?.classList.add('glow')
+                }, 600)
+                .add({
+                    targets: '.hero-description',
+                    translateY: [60, 0],
+                    opacity: [0, 1],
+                    filter: ['blur(10px)', 'blur(0px)'],
+                    duration: 1200
+                }, 1400)
+                .add({
+                    targets: '.hero-buttons .btn',
+                    translateY: [80, 0],
+                    rotateX: [-45, 0],
+                    opacity: [0, 1],
+                    scale: [0.5, 1],
+                    delay: anime.stagger(200),
+                    duration: 1000,
+                    easing: 'easeOutElastic(1, .5)'
+                }, 1800)
+                .add({
+                    targets: '.hero-badge',
+                    scale: [0, 1],
+                    rotate: [180, 0],
+                    opacity: [0, 1],
+                    duration: 1200,
+                    easing: 'easeOutElastic(1, .6)'
+                }, 2000)
+                .add({
+                    targets: '.stat-card',
+                    translateY: [150, 0],
+                    rotateY: [90, 0],
+                    rotateX: [45, 0],
+                    opacity: [0, 1],
+                    delay: anime.stagger(150, {grid: [2, 2], from: 'center'}),
+                    duration: 1400
+                }, 1600);
+
+            // Badge flotando
+            anime({
+                targets: '.hero-badge',
+                translateY: [-15, 15],
+                rotate: [-5, 5],
+                duration: 3000,
+                direction: 'alternate',
+                loop: true,
+                easing: 'easeInOutSine',
+                delay: 3200
+            });
+
+            // Contadores
+            setTimeout(() => {
+                document.querySelectorAll('.stat-number[data-count]').forEach(el => {
+                    const target = parseInt(el.getAttribute('data-count'));
+                    const obj = { value: 0 };
+                    anime({
+                        targets: obj,
+                        value: target,
+                        round: 1,
+                        duration: 2000,
+                        easing: 'easeOutExpo',
+                        update: () => el.textContent = Math.round(obj.value) + '+'
+                    });
+                });
+            }, 2800);
+
+            // Scroll indicator
+            anime({
+                targets: '.scroll-indicator',
+                translateY: [0, 20],
+                opacity: [0.4, 1],
+                direction: 'alternate',
+                loop: true,
+                duration: 1500,
+                easing: 'easeInOutQuad',
+                delay: 3500
+            });
+
+            // === INTERSECTION OBSERVER PARA SCROLL ANIMATIONS ===
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                        entry.target.classList.add('animated');
+                        animateSection(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observar todas las secciones
+            document.querySelectorAll('section:not(.hero)').forEach(section => {
+                scrollObserver.observe(section);
+            });
+
+            // === FUNCION PARA ANIMAR CADA SECCION ===
+            function animateSection(section) {
+                const sectionClass = section.className.split(' ')[0];
+
+                // Animar header de seccion
+                const header = section.querySelector('.section-header');
+                if (header) {
+                    anime.timeline({ easing: 'easeOutExpo' })
+                        .add({
+                            targets: header.querySelector('.section-tag'),
+                            translateX: [-50, 0],
+                            opacity: [0, 1],
+                            duration: 800
+                        })
+                        .add({
+                            targets: header.querySelector('.section-title'),
+                            translateY: [60, 0],
+                            opacity: [0, 1],
+                            duration: 1000
+                        }, '-=600')
+                        .add({
+                            targets: header.querySelector('.section-subtitle'),
+                            translateY: [40, 0],
+                            opacity: [0, 1],
+                            duration: 800
+                        }, '-=700');
+                }
+
+                // Animaciones especificas por seccion
+                switch(sectionClass) {
+                    case 'services':
+                        anime({
+                            targets: section.querySelectorAll('.service-card'),
+                            translateY: [100, 0],
+                            rotateX: [15, 0],
+                            opacity: [0, 1],
+                            delay: anime.stagger(100, {grid: [3, 2], from: 'first'}),
+                            duration: 1200,
+                            easing: 'easeOutElastic(1, .6)'
+                        });
+                        break;
+
+                    case 'packages':
+                        anime({
+                            targets: section.querySelectorAll('.package-card'),
+                            translateZ: [-200, 0],
+                            rotateY: [25, 0],
+                            opacity: [0, 1],
+                            delay: anime.stagger(200),
+                            duration: 1400,
+                            easing: 'easeOutExpo'
+                        });
+                        // Efecto especial para el featured
+                        setTimeout(() => {
+                            anime({
+                                targets: section.querySelector('.package-card.featured'),
+                                scale: [1, 1.05],
+                                boxShadow: ['0 0 0 rgba(212,175,55,0)', '0 30px 60px rgba(212,175,55,0.3)'],
+                                duration: 800,
+                                easing: 'easeOutBack'
+                            });
+                        }, 800);
+                        break;
+
+                    case 'videos':
+                        anime({
+                            targets: section.querySelectorAll('.video-card'),
+                            scale: [0.8, 1],
+                            rotateY: [-15, 0],
+                            opacity: [0, 1],
+                            delay: anime.stagger(150, {grid: [3, 2], from: 'center'}),
+                            duration: 1200,
+                            easing: 'easeOutExpo'
+                        });
+                        break;
+
+                    case 'gallery':
+                        anime({
+                            targets: section.querySelectorAll('.gallery-item'),
+                            scale: [0.7, 1],
+                            translateZ: [-100, 0],
+                            opacity: [0, 1],
+                            delay: anime.stagger(80, {grid: [4, 2], from: 'center'}),
+                            duration: 1000,
+                            easing: 'easeOutBack'
+                        });
+                        break;
+
+                    case 'events':
+                        anime({
+                            targets: section.querySelectorAll('.filter-btn'),
+                            translateY: [-30, 0],
+                            opacity: [0, 1],
+                            delay: anime.stagger(100),
+                            duration: 600,
+                            easing: 'easeOutBack'
+                        });
+                        anime({
+                            targets: section.querySelectorAll('.event-card'),
+                            translateY: [80, 0],
+                            rotateX: [10, 0],
+                            opacity: [0, 1],
+                            delay: anime.stagger(100),
+                            duration: 1000,
+                            easing: 'easeOutExpo'
+                        });
+                        break;
+
+                    case 'testimonials':
+                        anime({
+                            targets: section.querySelectorAll('.testimonial-card'),
+                            translateX: [-100, 0],
+                            rotateY: [-20, 0],
+                            opacity: [0, 1],
+                            duration: 1200,
+                            easing: 'easeOutExpo'
+                        });
+                        // Animar estrellas
+                        setTimeout(() => {
+                            anime({
+                                targets: section.querySelectorAll('.testimonial-stars i'),
+                                scale: [0, 1],
+                                rotate: [180, 0],
+                                delay: anime.stagger(100),
+                                duration: 600,
+                                easing: 'easeOutBack'
+                            });
+                        }, 800);
+                        break;
+
+                    case 'contact':
+                        anime({
+                            targets: section.querySelector('.contact-info'),
+                            translateX: [-100, 0],
+                            rotateY: [-10, 0],
+                            opacity: [0, 1],
+                            duration: 1200,
+                            easing: 'easeOutExpo'
+                        });
+                        anime({
+                            targets: section.querySelector('.contact-form'),
+                            translateX: [100, 0],
+                            rotateY: [10, 0],
+                            opacity: [0, 1],
+                            duration: 1200,
+                            delay: 200,
+                            easing: 'easeOutExpo'
+                        });
+                        anime({
+                            targets: section.querySelectorAll('.contact-item'),
+                            translateX: [-50, 0],
+                            opacity: [0, 1],
+                            delay: anime.stagger(150, {start: 400}),
+                            duration: 800,
+                            easing: 'easeOutBack'
+                        });
+                        break;
+                }
+            }
+
+            // === EFECTOS 3D TILT EN CARDS ===
+            function addTiltEffect(selector, intensity = 10) {
+                document.querySelectorAll(selector).forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        const rotateX = (y - centerY) / intensity;
+                        const rotateY = (centerX - x) / intensity;
+
+                        anime({
+                            targets: card,
+                            rotateX: rotateX,
+                            rotateY: rotateY,
+                            scale: 1.05,
+                            boxShadow: '0 30px 60px rgba(0,0,0,0.3)',
+                            duration: 100,
+                            easing: 'linear'
+                        });
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        anime({
+                            targets: card,
+                            rotateX: 0,
+                            rotateY: 0,
+                            scale: 1,
+                            boxShadow: '0 0 0 rgba(0,0,0,0)',
+                            duration: 600,
+                            easing: 'easeOutElastic(1, .5)'
+                        });
+                    });
+                });
+            }
+
+            // Aplicar tilt a diferentes cards
+            addTiltEffect('.stat-card', 8);
+            addTiltEffect('.service-card', 12);
+            addTiltEffect('.package-card', 10);
+            addTiltEffect('.video-card', 15);
+            addTiltEffect('.gallery-item', 20);
+            addTiltEffect('.testimonial-card', 12);
+
+            // === PARALLAX EN HERO ===
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.addEventListener('mousemove', (e) => {
+                    const { clientX, clientY } = e;
+                    const { innerWidth, innerHeight } = window;
+                    const moveX = (clientX - innerWidth / 2) / innerWidth;
+                    const moveY = (clientY - innerHeight / 2) / innerHeight;
+
+                    anime({
+                        targets: '.hero-bg',
+                        translateX: moveX * 50,
+                        translateY: moveY * 50,
+                        duration: 1000,
+                        easing: 'easeOutQuad'
+                    });
+
+                    anime({
+                        targets: '.hero-text',
+                        translateX: moveX * -20,
+                        translateY: moveY * -20,
+                        duration: 1000,
+                        easing: 'easeOutQuad'
+                    });
+
+                    anime({
+                        targets: '.hero-visual',
+                        translateX: moveX * 30,
+                        translateY: moveY * 30,
+                        duration: 1000,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            }
+
+            // === EFECTO MAGNETICO EN BOTONES ===
+            document.querySelectorAll('.btn-primary').forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    anime({
+                        targets: btn,
+                        translateX: x * 0.3,
+                        translateY: y * 0.3,
+                        duration: 200,
+                        easing: 'easeOutQuad'
+                    });
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    anime({
+                        targets: btn,
+                        translateX: 0,
+                        translateY: 0,
+                        duration: 600,
+                        easing: 'easeOutElastic(1, .3)'
+                    });
+                });
+            });
+
+            // === VIDEO CARDS HOVER EFECTO ===
+            document.querySelectorAll('.video-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    anime({
+                        targets: card.querySelector('.video-play'),
+                        scale: [1, 1.3],
+                        rotate: [0, 360],
+                        duration: 600,
+                        easing: 'easeOutBack'
+                    });
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    anime({
+                        targets: card.querySelector('.video-play'),
+                        scale: 1,
+                        rotate: 0,
+                        duration: 400,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            });
+
+            // === GALLERY HOVER EFECTO ===
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    anime({
+                        targets: item.querySelector('.gallery-zoom'),
+                        scale: [0.5, 1.2],
+                        rotate: [0, 90],
+                        opacity: [0, 1],
+                        duration: 400,
+                        easing: 'easeOutBack'
+                    });
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    anime({
+                        targets: item.querySelector('.gallery-zoom'),
+                        scale: 0.5,
+                        rotate: 0,
+                        opacity: 0,
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            });
+
+            // === SERVICE ICON HOVER ===
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    anime({
+                        targets: card.querySelector('.service-icon'),
+                        rotateY: 360,
+                        scale: 1.2,
+                        duration: 800,
+                        easing: 'easeOutElastic(1, .5)'
+                    });
+                    anime({
+                        targets: card.querySelector('.service-icon i'),
+                        color: '#fff',
+                        duration: 300
+                    });
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    anime({
+                        targets: card.querySelector('.service-icon'),
+                        rotateY: 0,
+                        scale: 1,
+                        duration: 600,
+                        easing: 'easeOutQuad'
+                    });
+                    anime({
+                        targets: card.querySelector('.service-icon i'),
+                        color: '#d4af37',
+                        duration: 300
+                    });
+                });
+            });
+
+            // === FILTER BUTTONS ANIMATION ===
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Animate clicked button
+                    anime({
+                        targets: btn,
+                        scale: [1, 0.9, 1.1, 1],
+                        duration: 400,
+                        easing: 'easeInOutQuad'
+                    });
+
+                    // Re-animate visible event cards
+                    setTimeout(() => {
+                        anime({
+                            targets: '.event-card:not([style*="display: none"])',
+                            translateY: [30, 0],
+                            opacity: [0, 1],
+                            delay: anime.stagger(80),
+                            duration: 600,
+                            easing: 'easeOutBack'
+                        });
+                    }, 100);
+                });
+            });
+
+            // === CONTACT FORM INPUT FOCUS ===
+            document.querySelectorAll('.contact-form input, .contact-form select, .contact-form textarea').forEach(input => {
+                input.addEventListener('focus', () => {
+                    anime({
+                        targets: input,
+                        scale: 1.02,
+                        borderColor: '#d4af37',
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+
+                input.addEventListener('blur', () => {
+                    anime({
+                        targets: input,
+                        scale: 1,
+                        borderColor: 'rgba(255,255,255,0.2)',
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            });
+
+            // === NAVBAR SCROLL ANIMATION ===
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                const navbar = document.querySelector('.navbar');
+                const currentScroll = window.pageYOffset;
+
+                if (currentScroll > 100) {
+                    if (currentScroll > lastScroll) {
+                        // Scrolling down
+                        anime({
+                            targets: navbar,
+                            translateY: -100,
+                            duration: 300,
+                            easing: 'easeOutQuad'
+                        });
+                    } else {
+                        // Scrolling up
+                        anime({
+                            targets: navbar,
+                            translateY: 0,
+                            duration: 300,
+                            easing: 'easeOutQuad'
+                        });
+                    }
+                } else {
+                    anime({
+                        targets: navbar,
+                        translateY: 0,
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                }
+                lastScroll = currentScroll;
+            });
+
+            // === SMOOTH SCROLL CON ANIMACION ===
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        // Flash effect on target section
+                        setTimeout(() => {
+                            anime({
+                                targets: target,
+                                backgroundColor: ['rgba(212,175,55,0.1)', 'rgba(212,175,55,0)'],
+                                duration: 1000,
+                                easing: 'easeOutQuad'
+                            });
+                        }, 500);
+                    }
+                });
+            });
+
         });
     </script>
 </body>
