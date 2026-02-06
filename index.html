@@ -648,6 +648,130 @@
             transform: scale(0.5);
         }
 
+        /* Music Player Button */
+        .music-toggle {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary) 0%, #b8860b 100%);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.6);
+        }
+
+        .music-toggle i {
+            font-size: 1.4rem;
+            color: var(--primary);
+            z-index: 2;
+        }
+
+        .music-toggle .music-waves {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+        }
+
+        .music-toggle .wave {
+            width: 4px;
+            height: 15px;
+            background: var(--primary);
+            border-radius: 2px;
+            animation: musicWave 0.8s ease-in-out infinite;
+        }
+
+        .music-toggle .wave:nth-child(1) { animation-delay: 0s; height: 10px; }
+        .music-toggle .wave:nth-child(2) { animation-delay: 0.1s; height: 20px; }
+        .music-toggle .wave:nth-child(3) { animation-delay: 0.2s; height: 15px; }
+        .music-toggle .wave:nth-child(4) { animation-delay: 0.3s; height: 25px; }
+        .music-toggle .wave:nth-child(5) { animation-delay: 0.4s; height: 12px; }
+
+        .music-toggle.paused .music-waves {
+            display: none;
+        }
+
+        .music-toggle.paused .play-icon {
+            display: block;
+        }
+
+        .music-toggle .play-icon {
+            display: none;
+        }
+
+        .music-toggle:not(.paused) .play-icon {
+            display: none;
+        }
+
+        .music-toggle:not(.paused) .music-waves {
+            display: flex;
+        }
+
+        @keyframes musicWave {
+            0%, 100% { transform: scaleY(0.5); }
+            50% { transform: scaleY(1); }
+        }
+
+        .music-toggle::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: musicPulse 2s ease-in-out infinite;
+        }
+
+        .music-toggle.paused::before {
+            animation: none;
+        }
+
+        @keyframes musicPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .music-tooltip {
+            position: absolute;
+            left: 75px;
+            background: var(--primary);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .music-toggle:hover .music-tooltip {
+            opacity: 1;
+        }
+
+        .music-tooltip::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 6px solid transparent;
+            border-right-color: var(--primary);
+        }
+
         .hero-tag {
             display: inline-flex;
             align-items: center;
@@ -1568,6 +1692,24 @@
 
     <!-- CUSTOM CURSOR -->
     <div class="cursor" id="cursor"></div>
+
+    <!-- BACKGROUND MUSIC -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="background-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MUSIC TOGGLE BUTTON -->
+    <button class="music-toggle paused" id="musicToggle" aria-label="Toggle music">
+        <div class="music-waves">
+            <span class="wave"></span>
+            <span class="wave"></span>
+            <span class="wave"></span>
+            <span class="wave"></span>
+            <span class="wave"></span>
+        </div>
+        <i class="fas fa-play play-icon"></i>
+        <span class="music-tooltip">Reproducir musica</span>
+    </button>
 
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
@@ -2897,6 +3039,106 @@
                         }, 500);
                     }
                 });
+            });
+
+            // === MUSIC PLAYER CONTROL ===
+            const bgMusic = document.getElementById('bgMusic');
+            const musicToggle = document.getElementById('musicToggle');
+            const musicTooltip = musicToggle.querySelector('.music-tooltip');
+
+            let isPlaying = false;
+
+            // Intentar autoplay despues de interaccion del usuario
+            let hasInteracted = false;
+
+            function tryAutoplay() {
+                if (!hasInteracted) {
+                    hasInteracted = true;
+                    bgMusic.volume = 0.5;
+                    bgMusic.play().then(() => {
+                        isPlaying = true;
+                        musicToggle.classList.remove('paused');
+                        musicTooltip.textContent = 'Pausar musica';
+
+                        // Animacion de entrada del boton
+                        anime({
+                            targets: musicToggle,
+                            scale: [0, 1],
+                            rotate: [180, 0],
+                            duration: 800,
+                            easing: 'easeOutElastic(1, .5)'
+                        });
+                    }).catch(() => {
+                        // Autoplay bloqueado, esperar click
+                        console.log('Autoplay blocked, waiting for user interaction');
+                    });
+                }
+            }
+
+            // Escuchar primera interaccion
+            document.addEventListener('click', tryAutoplay, { once: true });
+            document.addEventListener('scroll', tryAutoplay, { once: true });
+            document.addEventListener('touchstart', tryAutoplay, { once: true });
+
+            // Toggle musica
+            musicToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+
+                if (isPlaying) {
+                    bgMusic.pause();
+                    isPlaying = false;
+                    musicToggle.classList.add('paused');
+                    musicTooltip.textContent = 'Reproducir musica';
+
+                    anime({
+                        targets: musicToggle,
+                        scale: [1, 0.9, 1],
+                        duration: 300,
+                        easing: 'easeInOutQuad'
+                    });
+                } else {
+                    bgMusic.play();
+                    isPlaying = true;
+                    musicToggle.classList.remove('paused');
+                    musicTooltip.textContent = 'Pausar musica';
+
+                    anime({
+                        targets: musicToggle,
+                        scale: [1, 1.2, 1],
+                        rotate: [0, 10, 0],
+                        duration: 500,
+                        easing: 'easeOutElastic(1, .5)'
+                    });
+                }
+            });
+
+            // Hover effect con Anime.js
+            musicToggle.addEventListener('mouseenter', () => {
+                anime({
+                    targets: musicToggle,
+                    scale: 1.15,
+                    duration: 300,
+                    easing: 'easeOutBack'
+                });
+            });
+
+            musicToggle.addEventListener('mouseleave', () => {
+                anime({
+                    targets: musicToggle,
+                    scale: 1,
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+
+            // Animacion inicial del boton
+            anime({
+                targets: musicToggle,
+                translateY: [100, 0],
+                opacity: [0, 1],
+                duration: 1000,
+                delay: 2000,
+                easing: 'easeOutElastic(1, .6)'
             });
 
         });
