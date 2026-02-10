@@ -84,7 +84,7 @@
         /* NAVBAR */
         .navbar {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 36px; left: 0; right: 0;
             padding: 20px 50px;
             z-index: 1000;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1642,7 +1642,7 @@
             .navbar { padding: 15px 20px; }
             .nav-menu {
                 position: fixed;
-                top: 0; left: 0; right: 0; bottom: 0;
+                top: 36px; left: 0; right: 0; bottom: 0;
                 background: var(--primary);
                 flex-direction: column;
                 align-items: center;
@@ -1682,9 +1682,61 @@
             .gallery-grid { grid-template-columns: 1fr; }
             .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
         }
+        /* FORO7 TOP NAV BAR */
+        .foro7-topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 36px;
+            background: #050508;
+            border-bottom: 1px solid rgba(212,175,55,0.15);
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .foro7-topbar-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .foro7-topbar-links a {
+            font-family: monospace;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            padding: 4px 14px;
+            border-radius: 4px;
+            transition: color 0.3s, background 0.3s;
+        }
+        .foro7-topbar-links a:hover {
+            color: #d4af37;
+        }
+        .foro7-topbar-links a.foro7-topbar-active {
+            background: rgba(212,175,55,0.15);
+            color: #d4af37;
+        }
+        @media (max-width: 768px) {
+            .foro7-topbar-links a {
+                font-size: 9px;
+                letter-spacing: 1px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- FORO7 TOP NAV BAR -->
+    <div class="foro7-topbar">
+        <div class="foro7-topbar-links">
+            <a href="https://invitados.org">Inicio</a>
+            <a href="https://foro7.invitados.org" class="foro7-topbar-active">Paquetes &amp; Eventos</a>
+            <a href="https://studio.invitados.org">Productos 3D</a>
+        </div>
+    </div>
+
     <!-- PRELOADER -->
     <div class="preloader" id="preloader">
         <div class="preloader-logo">Foro <span>7</span></div>
