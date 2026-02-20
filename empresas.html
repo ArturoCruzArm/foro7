@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foro 7 Producciones - Fotografía y Video Profesional | León, Guanajuato</title>
-    <meta name="description" content="Foro 7 Producciones: Más de 15 años capturando momentos especiales en León, Guanajuato. Bodas, XV años, video 4K, dron y invitaciones web.">
+    <title>Fotografía Profesional para Empresas y PYMES en León — Foro 7</title>
+    <meta name="description" content="Fotografía de producto, corporativa, contenido para redes sociales, video comercial y eventos empresariales en León, Guanajuato. Desde $3,000 MXN.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Foro 7 Producciones - Fotografía y Video Profesional">
-    <meta property="og:description" content="Más de 15 años preservando tus momentos especiales. Bodas, XV años, video 4K y dron.">
+    <meta property="og:title" content="Fotografía Profesional para Empresas y PYMES en León — Foro ">
+    <meta property="og:description" content="Fotografía de producto, corporativa, contenido para redes sociales, video comercial y eventos empres">
     <meta property="og:image" content="https://img.youtube.com/vi/wwsLq4HkTHs/maxresdefault.jpg">
     <meta property="og:url" content="https://foro7.invitados.org">
 
@@ -1683,7 +1683,10 @@
             .gallery-grid { grid-template-columns: 1fr; }
             .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
         }
-    </style>
+    
+        .nav-active { color: var(--secondary) !important; }
+        .nav-active::after { width: 100% !important; }
+        </style>
 </head>
 <body>
     <!-- PRELOADER -->
@@ -1697,6 +1700,14 @@
     <!-- BACKGROUND MUSIC -->
     <audio id="bgMusic" loop preload="auto">
         <source src="background-music.mp3" type="audio/mpeg">
+<body>
+
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">Foro <span>7</span></div>
+    </div>
+    <div class="cursor" id="cursor"></div>
+
     </audio>
 
     <!-- MUSIC TOGGLE BUTTON -->
@@ -1715,17 +1726,16 @@
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">
+            <a href="index.html" class="nav-logo">
                 <img src="logo.png" alt="Foro 7 Producciones" style="height:52px;width:auto;display:block;">
             </a>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="bodas.html">Bodas</a></li>
                 <li><a href="xv-anos.html">XV Años</a></li>
                 <li><a href="eventos.html">Eventos</a></li>
-                <li><a href="empresas.html">Empresas</a></li>
+                <li><a href="empresas.html" class="nav-active">Empresas</a></li>
                 <li><a href="#paquetes">Paquetes</a></li>
-                <li><a href="#referidos">Referidos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
             <a href="https://wa.me/5214779203776" class="nav-cta">Cotizar</a>
@@ -1740,229 +1750,36 @@
     <main>
         <!-- HERO -->
         <section id="inicio" class="hero">
-            <div class="hero-bg"></div>
+            <div class="hero-bg" style="background-image:url('https://img.youtube.com/vi/wwsLq4HkTHs/maxresdefault.jpg');"></div>
             <div class="hero-overlay"></div>
-
-            <!-- Particulas flotantes -->
             <div class="hero-particles" id="particles"></div>
-
-            <!-- Lineas decorativas -->
             <div class="hero-lines" id="heroLines"></div>
-
-            <!-- Badge flotante -->
-            <div class="hero-badge">
-                <span>Desde</span>
-                <strong>2009</strong>
-            </div>
+            <div class="hero-badge"><span>Desde</span><strong>2009</strong></div>
             <div class="hero-content">
                 <div class="hero-text">
                     <div class="hero-tag">Leon, Guanajuato</div>
-                    <h1>Capturamos tus momentos <span class="highlight">inolvidables</span></h1>
-                    <p class="hero-description">Mas de 15 anos especializados en fotografia y video profesional para bodas, XV anos y eventos sociales. Porque los recuerdos son para siempre.</p>
+                    <h1>Contenido visual profesional para tu negocio</h1>
+                    <p class="hero-description">Fotografía de producto, corporativa, redes sociales, video comercial y eventos empresariales. Haz crecer tu marca en León, Gto.</p>
                     <div class="hero-buttons">
-                        <a href="https://wa.me/5214779203776?text=Hola,%20me%20interesa%20cotizar%20un%20paquete" class="btn btn-primary">
-                            <i class="fab fa-whatsapp"></i> Cotizar Ahora
+                        <a href="https://wa.me/5214779203776?text=Hola%2C%20me%20interesa%20cotizar%20servicios%20para%20mi%20empresa" class="btn btn-primary">
+                            <i class="fab fa-whatsapp"></i> Cotizar para mi empresa
                         </a>
-                        <a href="#videos" class="btn btn-outline">
-                            <i class="fas fa-play"></i> Ver Videos
+                        <a href="#paquetes" class="btn btn-outline">
+                            <i class="fas fa-dollar-sign"></i> Ver Paquetes
                         </a>
                     </div>
                 </div>
                 <div class="hero-visual">
                     <div class="hero-stats">
-                        <div class="stat-card">
-                            <div class="stat-number" data-count="15">0</div>
-                            <div class="stat-label">Anos de experiencia</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" data-count="500">0</div>
-                            <div class="stat-label">Eventos realizados</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" data-count="100">0</div>
-                            <div class="stat-label">Clientes satisfechos</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">4K</div>
-                            <div class="stat-label">Calidad de video</div>
-                        </div>
+                        <div class="stat-card"><div class="stat-number" data-count="15">0</div><div class="stat-label">Anos de experiencia</div></div>
+                        <div class="stat-card"><div class="stat-number" data-count="500">0</div><div class="stat-label">Eventos realizados</div></div>
+                        <div class="stat-card"><div class="stat-number" data-count="100">0</div><div class="stat-label">Clientes satisfechos</div></div>
+                        <div class="stat-card"><div class="stat-number">4K</div><div class="stat-label">Calidad de video</div></div>
                     </div>
                 </div>
             </div>
-            <div class="scroll-indicator">
-                <span>Scroll</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
+            <div class="scroll-indicator"><span>Scroll</span><i class="fas fa-chevron-down"></i></div>
         </section>
-
-        <!-- CLIENTE NAVIGATOR -->
-        <section style="background:#0d0d15; padding:70px 0;">
-            <div class="container">
-                <div class="section-header" style="margin-bottom:40px;">
-                    <div class="section-tag">¿Qué buscas?</div>
-                    <h2 class="section-title" style="color:#fff;">Elige tu tipo de evento</h2>
-                    <p class="section-subtitle" style="color:rgba(255,255,255,0.6);">Cada página tiene todo lo que necesitas para tu tipo de evento</p>
-                </div>
-                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px;">
-                    <a href="bodas.html" style="text-decoration:none; display:block; background:rgba(212,175,55,0.06); border:1px solid rgba(212,175,55,0.25); border-radius:16px; padding:36px 24px; text-align:center; transition:all 0.3s;" onmouseover="this.style.background='rgba(212,175,55,0.12)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.background='rgba(212,175,55,0.06)';this.style.borderColor='rgba(212,175,55,0.25)'">
-                        <div style="font-size:48px; margin-bottom:16px;">💍</div>
-                        <h3 style="color:#d4af37; font-size:1.6rem; margin-bottom:10px;">Bodas</h3>
-                        <p style="color:rgba(255,255,255,0.6); font-size:0.9rem; line-height:1.6;">Fotografía, video, dron, invitación digital y más para tu gran día.</p>
-                        <div style="margin-top:20px; color:#d4af37; font-size:0.85rem; letter-spacing:1px;">Ver opciones →</div>
-                    </a>
-                    <a href="xv-anos.html" style="text-decoration:none; display:block; background:rgba(212,175,55,0.06); border:1px solid rgba(212,175,55,0.25); border-radius:16px; padding:36px 24px; text-align:center; transition:all 0.3s;" onmouseover="this.style.background='rgba(212,175,55,0.12)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.background='rgba(212,175,55,0.06)';this.style.borderColor='rgba(212,175,55,0.25)'">
-                        <div style="font-size:48px; margin-bottom:16px;">👑</div>
-                        <h3 style="color:#d4af37; font-size:1.6rem; margin-bottom:10px;">XV Años</h3>
-                        <p style="color:rgba(255,255,255,0.6); font-size:0.9rem; line-height:1.6;">Sesión previa, ceremonia religiosa y fiesta — un recuerdo mágico de por vida.</p>
-                        <div style="margin-top:20px; color:#d4af37; font-size:0.85rem; letter-spacing:1px;">Ver opciones →</div>
-                    </a>
-                    <a href="eventos.html" style="text-decoration:none; display:block; background:rgba(212,175,55,0.06); border:1px solid rgba(212,175,55,0.25); border-radius:16px; padding:36px 24px; text-align:center; transition:all 0.3s;" onmouseover="this.style.background='rgba(212,175,55,0.12)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.background='rgba(212,175,55,0.06)';this.style.borderColor='rgba(212,175,55,0.25)'">
-                        <div style="font-size:48px; margin-bottom:16px;">🎉</div>
-                        <h3 style="color:#d4af37; font-size:1.6rem; margin-bottom:10px;">Otros Eventos</h3>
-                        <p style="color:rgba(255,255,255,0.6); font-size:0.9rem; line-height:1.6;">Bautizos, graduaciones, comuniones y eventos sociales de todo tipo.</p>
-                        <div style="margin-top:20px; color:#d4af37; font-size:0.85rem; letter-spacing:1px;">Ver opciones →</div>
-                    </a>
-                    <a href="empresas.html" style="text-decoration:none; display:block; background:rgba(212,175,55,0.06); border:1px solid rgba(212,175,55,0.25); border-radius:16px; padding:36px 24px; text-align:center; transition:all 0.3s;" onmouseover="this.style.background='rgba(212,175,55,0.12)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.background='rgba(212,175,55,0.06)';this.style.borderColor='rgba(212,175,55,0.25)'">
-                        <div style="font-size:48px; margin-bottom:16px;">🏢</div>
-                        <h3 style="color:#d4af37; font-size:1.6rem; margin-bottom:10px;">Empresas</h3>
-                        <p style="color:rgba(255,255,255,0.6); font-size:0.9rem; line-height:1.6;">Fotografía de producto, corporativa, redes sociales y video comercial.</p>
-                        <div style="margin-top:20px; color:#d4af37; font-size:0.85rem; letter-spacing:1px;">Ver opciones →</div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- SERVICIOS -->
-        <section id="servicios" class="services">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-tag">Que ofrecemos</div>
-                    <h2 class="section-title">Nuestros Servicios</h2>
-                    <p class="section-subtitle">Cobertura integral para hacer de tu evento un recuerdo inolvidable</p>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-camera"></i></div>
-                        <h3>Fotografia Profesional</h3>
-                        <p>Sesion previa, ceremonia y recepcion con equipo de ultima generacion. Fotos impresas en alta calidad y galeria digital completa.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-video"></i></div>
-                        <h3>Video Cinematico 4K</h3>
-                        <p>Pelicula editada con musica y titulos personalizados. Videoclip especial para proyectar en tu evento con la mejor calidad.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-helicopter"></i></div>
-                        <h3>Tomas con Dron 4K</h3>
-                        <p>Perspectivas aereas espectaculares que capturan la magnitud de tu celebracion desde angulos unicos e impresionantes.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-ring"></i></div>
-                        <h3>Cobertura de Bodas</h3>
-                        <p>Desde los preparativos hasta el ultimo baile. Capturamos cada momento, cada lagrima de alegria y cada sonrisa.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-crown"></i></div>
-                        <h3>XV Anos</h3>
-                        <p>Sesion previa, ceremonia religiosa y fiesta. Hacemos de tu transicion a mujer un recuerdo magico para toda la vida.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-globe"></i></div>
-                        <h3>Invitacion Web</h3>
-                        <p>Invitacion digital personalizada con confirmacion de asistencia via WhatsApp, mapa interactivo y toda la informacion del evento.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-music"></i></div>
-                        <h3>Musica Personalizada</h3>
-                        <p>Creamos musica original para tu evento en cualquier genero. Perfecta para tu vals, pase de fotos, entrada o la edicion de tu pelicula.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PAQUETES -->
-        <section id="paquetes" class="packages">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-tag">Elige tu plan</div>
-                    <h2 class="section-title">Paquetes</h2>
-                    <p class="section-subtitle">Calidad a buen precio - Fotografia y video profesional</p>
-                </div>
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <h3>Basico</h3>
-                        <div class="package-price">$8,500 <span>MXN</span></div>
-                        <ul>
-                            <li><i class="fas fa-check"></i> 50 fotos impresas 5x7"</li>
-                            <li><i class="fas fa-check"></i> Pelicula USB 4K (2 hrs)</li>
-                            <li><i class="fas fa-check"></i> Foto ampliada 40x50cm con marco</li>
-                            <li><i class="fas fa-check"></i> Caja impresa para USB y fotos</li>
-                            <li><i class="fas fa-check"></i> Sesion fotografica</li>
-                            <li><i class="fas fa-check"></i> 1hr ceremonia + 4hrs fiesta</li>
-                            <li><i class="fas fa-check"></i> Todas las fotografias en digital</li>
-                        </ul>
-                        <a href="https://wa.me/5214779203776?text=Hola,%20me%20interesa%20el%20paquete%20BASICO%20de%20$8,500" class="btn btn-outline">Cotizar</a>
-                    </div>
-                    <div class="package-card featured">
-                        <div class="package-badge">Mas Popular</div>
-                        <h3>Completo</h3>
-                        <div class="package-price">$10,000 <span>MXN</span></div>
-                        <ul>
-                            <li><i class="fas fa-check"></i> 100 fotos impresas 5x7"</li>
-                            <li><i class="fas fa-check"></i> Pelicula USB editada y musicalizada</li>
-                            <li><i class="fas fa-check"></i> Videoclip para proyectar</li>
-                            <li><i class="fas fa-check"></i> Foto ampliada 50x60cm con marco</li>
-                            <li><i class="fas fa-check"></i> Sesion + misa + fiesta</li>
-                            <li><i class="fas fa-check"></i> 1hr ceremonia + 6hrs fiesta</li>
-                            <li><i class="fas fa-check"></i> Todas las fotografias en digital</li>
-                        </ul>
-                        <a href="https://wa.me/5214779203776?text=Hola,%20me%20interesa%20el%20paquete%20COMPLETO%20de%20$10,000" class="btn btn-primary">Cotizar</a>
-                    </div>
-                    <div class="package-card">
-                        <h3>Premium</h3>
-                        <div class="package-price">$12,000 <span>MXN</span></div>
-                        <ul>
-                            <li><i class="fas fa-check"></i> 200 fotos o fotolibro 30x60 de lujo</li>
-                            <li><i class="fas fa-check"></i> Pelicula USB editada y musicalizada</li>
-                            <li><i class="fas fa-check"></i> Videoclip para proyectar</li>
-                            <li><i class="fas fa-check"></i> Foto ampliada 60x80cm con marco</li>
-                            <li><i class="fas fa-check"></i> Caja de madera para fotos</li>
-                            <li><i class="fas fa-check"></i> Sesion antes y dia del evento</li>
-                            <li><i class="fas fa-check"></i> 1hr ceremonia + 8hrs fiesta</li>
-                            <li><i class="fas fa-check"></i> Todas las fotografias en digital</li>
-                        </ul>
-                        <a href="https://wa.me/5214779203776?text=Hola,%20me%20interesa%20el%20paquete%20PREMIUM%20de%20$12,000" class="btn btn-outline">Cotizar</a>
-                    </div>
-                </div>
-                <div class="extras-section" style="margin-top: 60px; text-align: center;">
-                    <h3 style="color: #fff; font-size: 1.8rem; margin-bottom: 30px;">Servicios Adicionales</h3>
-                    <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-                        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 30px 40px; text-align: center;">
-                            <div style="font-size: 2.5rem; margin-bottom: 10px;"><i class="fas fa-helicopter" style="color: var(--secondary);"></i></div>
-                            <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 10px;">Tomas con Dron 4K</h4>
-                            <div style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--secondary);">+$1,500</div>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 30px 40px; text-align: center;">
-                            <div style="font-size: 2.5rem; margin-bottom: 10px;"><i class="fas fa-globe" style="color: var(--secondary);"></i></div>
-                            <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 10px;">Invitacion Web Completa</h4>
-                            <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; max-width: 250px;">Pagina de invitados, logistica, seleccion de fotos y contrato</p>
-                            <a href="https://wa.me/5214779203776?text=Hola,%20me%20interesa%20la%20invitacion%20web" style="color: var(--secondary); text-decoration: none; font-size: 0.9rem; margin-top: 15px; display: inline-block;">Cotizar <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 30px 40px; text-align: center;">
-                            <div style="font-size: 2.5rem; margin-bottom: 10px;"><i class="fas fa-music" style="color: var(--secondary);"></i></div>
-                            <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 10px;">Musica Personalizada</h4>
-                            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:700; color:var(--secondary); margin:8px 0;">desde +$1,500 <span style="font-size:1rem; font-weight:400; color:rgba(255,255,255,0.5);">MXN</span></div>
-                            <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; max-width: 250px;">Composicion original para vals, pase de fotos o edicion de pelicula. Cualquier genero.</p>
-                            <a href="https://wa.me/5214779203776?text=Hola,%20me%20interesa%20la%20musica%20personalizada%20para%20mi%20evento" style="color: var(--secondary); text-decoration: none; font-size: 0.9rem; margin-top: 15px; display: inline-block;">Cotizar <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align:center;margin-top:50px;">
-                    <a href="https://studio.invitados.org" target="_blank" style="display:inline-block;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);color:#d4af37;padding:14px 36px;border-radius:8px;font-family:'Cormorant Garamond',serif;font-size:16px;text-decoration:none;letter-spacing:1px;transition:all 0.3s;">Explorar Productos en 3D &#8594;</a>
-                </div>
-            </div>
-        </section>
-
         <!-- PAQUETE PYME -->
         <section id="pyme" style="background:linear-gradient(135deg,#0f0f1a 0%,#1a1a2e 60%,#16213e 100%); padding:80px 0;">
             <div class="container">
@@ -2036,330 +1853,62 @@
             </div>
         </div>
         </section>
-                <!-- VIDEOS -->
-        <section id="videos" class="videos">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-tag">Nuestro trabajo</div>
-                    <h2 class="section-title">Videos Recientes</h2>
-                    <p class="section-subtitle">Mira la calidad cinematografica de nuestras producciones</p>
-                </div>
-                <div class="videos-grid">
-                    <div class="video-card" data-video="wwsLq4HkTHs">
-                        <img src="https://img.youtube.com/vi/wwsLq4HkTHs/maxresdefault.jpg" alt="Boda Mariana y Juan Manuel - 2,506 vistas" loading="lazy">
-                        <div class="video-overlay">
-                            <div class="video-play"><i class="fas fa-play"></i></div>
-                            <div class="video-info">
-                                <h4>Mariana & Juan Manuel</h4>
-                                <span>2,506 vistas - Boda</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-card" data-video="wSwprNCSmNk">
-                        <img src="https://img.youtube.com/vi/wSwprNCSmNk/maxresdefault.jpg" alt="XV Años Evelin - 2,180 vistas" loading="lazy">
-                        <div class="video-overlay">
-                            <div class="video-play"><i class="fas fa-play"></i></div>
-                            <div class="video-info">
-                                <h4>XV Evelin</h4>
-                                <span>2,180 vistas - XV Anos</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-card" data-video="lXbVOZpgm18">
-                        <img src="https://img.youtube.com/vi/lXbVOZpgm18/maxresdefault.jpg" alt="3 Quinceañeras - 1,394 vistas" loading="lazy">
-                        <div class="video-overlay">
-                            <div class="video-play"><i class="fas fa-play"></i></div>
-                            <div class="video-info">
-                                <h4>3 Quinceaneras</h4>
-                                <span>1,394 vistas - XV Anos</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-card" data-video="A_iDd7RMr_k">
-                        <img src="https://img.youtube.com/vi/A_iDd7RMr_k/maxresdefault.jpg" alt="Boda Julio y Oscar - 1,217 vistas" loading="lazy">
-                        <div class="video-overlay">
-                            <div class="video-play"><i class="fas fa-play"></i></div>
-                            <div class="video-info">
-                                <h4>Julio & Oscar</h4>
-                                <span>1,217 vistas - Boda</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-card" data-video="uL-Csdf5CEc">
-                        <img src="https://img.youtube.com/vi/uL-Csdf5CEc/maxresdefault.jpg" alt="XV Abril - 1,148 vistas" loading="lazy">
-                        <div class="video-overlay">
-                            <div class="video-play"><i class="fas fa-play"></i></div>
-                            <div class="video-info">
-                                <h4>XV Abril</h4>
-                                <span>1,148 vistas - XV Anos</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-card" data-video="jm4LMl5iXE4">
-                        <img src="https://img.youtube.com/vi/jm4LMl5iXE4/maxresdefault.jpg" alt="XV Natalia - 960 vistas" loading="lazy">
-                        <div class="video-overlay">
-                            <div class="video-play"><i class="fas fa-play"></i></div>
-                            <div class="video-info">
-                                <h4>XV Natalia</h4>
-                                <span>960 vistas - XV Anos</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- VIDEO MODAL -->
-        <div class="video-modal" id="videoModal">
-            <div class="video-modal-close" id="closeVideoModal"><i class="fas fa-times"></i></div>
-            <div class="video-modal-content">
-                <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- GALERIA -->
-        <section id="galeria" class="gallery">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-tag">Portafolio</div>
-                    <h2 class="section-title">Galeria de Fotos</h2>
-                    <p class="section-subtitle">Momentos capturados con pasion y profesionalismo</p>
-                </div>
-                <div class="gallery-grid">
-                    <div class="gallery-item"><img src="foro7.jpg" alt="Foro 7 Producciones" loading="lazy"><i class="fas fa-expand gallery-zoom"></i></div>
-                    <div class="gallery-item"><img src="images/foto1.png" alt="Foro 7 Producciones" loading="lazy"><i class="fas fa-expand gallery-zoom"></i></div>
-                    <div class="gallery-item"><img src="images/foto2.png" alt="Boda - Foro 7 Producciones" loading="lazy"><i class="fas fa-expand gallery-zoom"></i></div>
-                    <div class="gallery-item"><img src="images/foto3.jpg" alt="Ceremonia - Foro 7 Producciones" loading="lazy"><i class="fas fa-expand gallery-zoom"></i></div>
-                    <div class="gallery-item"><img src="images/foto4.jpg" alt="Fotografia profesional" loading="lazy"><i class="fas fa-expand gallery-zoom"></i></div>
-                    <div class="gallery-item"><img src="images/foto5.jpg" alt="Evento especial" loading="lazy"><i class="fas fa-expand gallery-zoom"></i></div>
-                    <div class="gallery-item"><img src="images/foto6.jpg" alt="Recepcion" loading="lazy"><i class="fas fa-expand gallery-zoom"></i></div>
-                    <div class="gallery-item"><img src="images/foto7.jpg" alt="Fiesta" loading="lazy"><i class="fas fa-expand gallery-zoom"></i></div>
-                    <div class="gallery-item"><img src="images/foto8.jpg" alt="Momentos especiales" loading="lazy"><i class="fas fa-expand gallery-zoom"></i></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- LIGHTBOX -->
-        <div class="lightbox" id="lightbox">
-            <div class="lightbox-close"><i class="fas fa-times"></i></div>
-            <div class="lightbox-nav lightbox-prev"><i class="fas fa-chevron-left"></i></div>
-            <img src="" alt="Lightbox" id="lightboxImg">
-            <div class="lightbox-nav lightbox-next"><i class="fas fa-chevron-right"></i></div>
-        </div>
-
-        <!-- EVENTOS -->
-        <section id="eventos" class="events">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-tag">Invitaciones</div>
-                    <h2 class="section-title">Eventos Recientes</h2>
-                    <p class="section-subtitle">Explora las invitaciones digitales de nuestros clientes</p>
-                </div>
-                <div class="events-filter">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="xv">XV Anos</button>
-                    <button class="filter-btn" data-filter="boda">Bodas</button>
-                </div>
-                <div class="events-grid" id="eventsGrid"></div>
-            </div>
-        </section>
-
-        <!-- TESTIMONIOS -->
-        <section class="testimonials">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-tag">Opiniones</div>
-                    <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
-                </div>
-                <div class="testimonials-slider">
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">"Excelentes en su trabajo. Capturaron cada momento de nuestra boda de manera perfecta. Ampliamente recomendables."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
-                            <div class="testimonial-info">
-                                <h4>Dario Silvestre Ojeda</h4>
-                                <span>Boda 2024</span>
-                                <div class="testimonial-stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- REFERIDOS -->
-        <section id="referidos" style="background:linear-gradient(135deg,#0f0f1a 0%,#1a1a2e 60%,#16213e 100%); padding:80px 0;">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-tag">Programa de referidos</div>
-                    <h2 class="section-title" style="color:#fff;">Recomiéndanos y <span style="color:var(--secondary);">Gana</span></h2>
-                    <p class="section-subtitle" style="color:rgba(255,255,255,0.7);">Por cada cliente que nos recomiendes y concrete su evento, tú recibes un regalo</p>
-                </div>
-
-                <div style="max-width:860px; margin:0 auto;">
-
-                    <!-- Recompensa -->
-                    <div style="background:rgba(212,175,55,0.08); border:2px solid var(--secondary); border-radius:18px; padding:36px; text-align:center; margin-bottom:40px;">
-                        <div style="font-size:48px; margin-bottom:12px;">🎁</div>
-                        <div style="font-size:14px; color:rgba(255,255,255,0.6); letter-spacing:3px; text-transform:uppercase; margin-bottom:8px;">Tu recompensa</div>
-                        <div style="display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap:wrap; margin-bottom:16px;">
-                            <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(212,175,55,0.3); border-radius:12px; padding:16px 28px;">
-                                <div style="font-size:22px; font-weight:900; color:var(--secondary);">Sesión de retratos</div>
-                                <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:4px;">valorada en $2,000 MXN</div>
-                            </div>
-                            <div style="color:rgba(255,255,255,0.4); font-size:20px; font-weight:300;">ó</div>
-                            <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(212,175,55,0.3); border-radius:12px; padding:16px 28px;">
-                                <div style="font-size:22px; font-weight:900; color:var(--secondary);">$500 de descuento</div>
-                                <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:4px;">en tu próxima contratación</div>
-                            </div>
-                        </div>
-                        <p style="color:rgba(255,255,255,0.55); font-size:13px;">Válido por cada referido que concrete su evento con nosotros. Sin límite de referidos.</p>
-                    </div>
-
-                    <!-- Pasos -->
-                    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; margin-bottom:40px;">
-                        <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(212,175,55,0.15); border-radius:14px; padding:24px; text-align:center;">
-                            <div style="width:48px; height:48px; border-radius:50%; background:var(--secondary); color:#1a1a2e; font-size:22px; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto 14px;">1</div>
-                            <div style="font-weight:700; color:#fff; margin-bottom:8px;">Recomiéndanos</div>
-                            <p style="font-size:13px; color:rgba(255,255,255,0.55);">Comparte nuestro número o sitio web con un familiar, amigo o conocido que tenga un evento próximo.</p>
-                        </div>
-                        <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(212,175,55,0.15); border-radius:14px; padding:24px; text-align:center;">
-                            <div style="width:48px; height:48px; border-radius:50%; background:var(--secondary); color:#1a1a2e; font-size:22px; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto 14px;">2</div>
-                            <div style="font-weight:700; color:#fff; margin-bottom:8px;">Ellos nos contratan</div>
-                            <p style="font-size:13px; color:rgba(255,255,255,0.55);">Tu referido contacta y reserva con Foro 7 Producciones. Solo debe mencionar tu nombre al contactarnos.</p>
-                        </div>
-                        <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(212,175,55,0.15); border-radius:14px; padding:24px; text-align:center;">
-                            <div style="width:48px; height:48px; border-radius:50%; background:var(--secondary); color:#1a1a2e; font-size:22px; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto 14px;">3</div>
-                            <div style="font-weight:700; color:#fff; margin-bottom:8px;">Tú recibes tu regalo</div>
-                            <p style="font-size:13px; color:rgba(255,255,255,0.55);">Una vez que el evento se realice, te contactamos para coordinar tu sesión de retratos o aplicar tu descuento.</p>
-                        </div>
-                    </div>
-
-                    <!-- Mensaje listo para compartir -->
-                    <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(212,175,55,0.2); border-radius:14px; padding:24px; margin-bottom:30px;">
-                        <div style="font-size:13px; color:var(--secondary); letter-spacing:2px; font-weight:700; margin-bottom:12px;">📋 MENSAJE LISTO PARA COMPARTIR</div>
-                        <div id="msgReferido" style="background:rgba(0,0,0,0.3); border-radius:10px; padding:16px; font-size:13px; color:rgba(255,255,255,0.8); line-height:1.7; font-style:italic;">
-                            "Te recomiendo a Foro 7 Producciones para tu evento 📸🎬 — llevan más de 15 años en León, hacen fotos, video 4K, drone y hasta invitaciones web. El trabajo es increíble. Escríbeles por WhatsApp: wa.me/5214779203776"
-                        </div>
-                        <button onclick="copiarMensaje()" style="margin-top:12px; background:transparent; border:1px solid rgba(212,175,55,0.4); color:var(--secondary); padding:8px 20px; border-radius:8px; font-size:13px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='rgba(212,175,55,0.1)'" onmouseout="this.style.background='transparent'">
-                            <i class="fas fa-copy"></i> Copiar mensaje
-                        </button>
-                        <span id="copiadoMsg" style="display:none; margin-left:12px; font-size:13px; color:#27ae60;">¡Copiado!</span>
-                    </div>
-
-                    <!-- CTA -->
-                    <div style="text-align:center;">
-                        <a href="https://wa.me/5214779203776?text=Hola%2C%20quiero%20participar%20en%20el%20programa%20de%20referidos%20de%20Foro%207%20Producciones" target="_blank" class="btn btn-primary" style="font-size:16px; padding:16px 40px;">
-                            <i class="fab fa-whatsapp"></i> Quiero participar
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <script>
-        function copiarMensaje() {
-            const texto = document.getElementById('msgReferido').innerText.replace(/"/g, '');
-            navigator.clipboard.writeText(texto).then(() => {
-                const msg = document.getElementById('copiadoMsg');
-                msg.style.display = 'inline';
-                setTimeout(() => msg.style.display = 'none', 2500);
-            });
-        }
-        </script>
-
-        <!-- CONTACTO -->
+        <!-- CONTACTO EMPRESAS -->
         <section id="contacto" class="contact">
             <div class="container">
                 <div class="contact-grid">
                     <div class="contact-info">
-                        <h3>Hablemos de tu evento</h3>
-                        <p>Estamos listos para crear recuerdos que duraran para siempre. Contactanos y recibe una cotizacion personalizada sin compromiso.</p>
-
+                        <h3>Cotiza para tu negocio</h3>
+                        <p>Cuéntanos qué necesitas y te preparamos una propuesta personalizada sin costo. Respondemos en menos de 24 horas.</p>
                         <div class="contact-item">
                             <i class="fab fa-whatsapp"></i>
-                            <div class="contact-item-text">
-                                <h4>WhatsApp</h4>
-                                <span><a href="https://wa.me/5214779203776">477 920 3776</a></span>
-                            </div>
+                            <div class="contact-item-text"><h4>WhatsApp</h4><span><a href="https://wa.me/5214779203776">477 920 3776</a></span></div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <div class="contact-item-text">
-                                <h4>Email</h4>
-                                <span><a href="mailto:foro7.producciones@hotmail.com">foro7.producciones@hotmail.com</a></span>
-                            </div>
+                            <div class="contact-item-text"><h4>Email</h4><span><a href="mailto:foro7.producciones@hotmail.com">foro7.producciones@hotmail.com</a></span></div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <div class="contact-item-text">
-                                <h4>Direccion</h4>
-                                <span>Padilla 112, Cumbres de Arbide, Leon, Gto.</span>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-globe"></i>
-                            <div class="contact-item-text">
-                                <h4>Sitio Web</h4>
-                                <span><a href="https://foro7.invitados.org">foro7.invitados.org</a></span>
-                            </div>
+                            <div class="contact-item-text"><h4>Leon, Gto</h4><span>Padilla 112, Cumbres de Arbide</span></div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-credit-card"></i>
-                            <div class="contact-item-text">
-                                <h4>Cuenta BBVA</h4>
-                                <span>4152 3137 6890 8985</span>
-                            </div>
+                            <div class="contact-item-text"><h4>Cuenta BBVA</h4><span>4152 3137 6890 8985</span></div>
                         </div>
-
                         <div class="social-links">
                             <a href="https://www.facebook.com/Foro7Prod/" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
                             <a href="https://www.youtube.com/@Foro7" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
                             <a href="https://x.com/ForoVideo" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.linkedin.com/in/foro-7-producciones-aa40a647/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-
                     <div class="contact-form">
                         <form id="contactForm">
                             <div class="form-row">
-                                <div class="form-group">
-                                    <label>Nombre</label>
-                                    <input type="text" id="nombre" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Telefono</label>
-                                    <input type="tel" id="telefono" required>
-                                </div>
+                                <div class="form-group"><label>Nombre</label><input type="text" id="nombre" required></div>
+                                <div class="form-group"><label>Telefono / WhatsApp</label><input type="tel" id="telefono" required></div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label>Tipo de Evento</label>
+                                    <label>Servicio de interés</label>
                                     <select id="servicio" required>
                                         <option value="">Seleccionar...</option>
-                                        <option value="Boda">Boda</option>
-                                        <option value="XV Anos">XV Anos</option>
-                                        <option value="Primera Comunion">Primera Comunion</option>
-                                        <option value="Otro">Otro evento</option>
+                                        <option value="Fotografia de Producto">Fotografia de Producto</option>
+                                        <option value="Fotografia Corporativa">Fotografia Corporativa</option>
+                                        <option value="Contenido para Redes Sociales">Contenido Redes Sociales</option>
+                                        <option value="Video Comercial">Video Comercial</option>
+                                        <option value="Evento Empresarial">Eventos Empresariales</option>
+                                        <option value="Paquete combinado">Paquete Combinado</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label>Fecha del Evento</label>
-                                    <input type="date" id="fecha">
-                                </div>
+                                <div class="form-group"><label>Empresa / Negocio</label><input type="text" id="fecha" placeholder="Nombre de tu empresa"></div>
                             </div>
                             <div class="form-group">
-                                <label>Mensaje</label>
-                                <textarea id="mensaje" rows="4" placeholder="Cuentanos sobre tu evento..."></textarea>
+                                <label>Cuéntanos qué necesitas</label>
+                                <textarea id="mensaje" rows="4" placeholder="Describe brevemente lo que buscas..."></textarea>
                             </div>
                             <button type="submit" class="submit-btn">
-                                <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+                                <i class="fab fa-whatsapp"></i> Solicitar Cotización
                             </button>
                         </form>
                     </div>
@@ -2417,80 +1966,64 @@
 
     <script>
         // Preloader
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('preloader').classList.add('hidden');
-            }, 1000);
-        });
-
+        window.addEventListener('load', () => { setTimeout(() => { document.getElementById('preloader').classList.add('hidden'); }, 1000); });
         // Custom Cursor
         const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
+        document.addEventListener('mousemove', e => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
         document.querySelectorAll('a, button, .video-card, .gallery-item').forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
         });
-
         // Navbar scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
-        });
-
+        window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
         // Mobile menu
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Smooth scroll
+        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navMenu.classList.toggle('active'); });
+        // Smooth scroll (for anchor links only)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                }
+                const href = this.getAttribute('href');
+                if(href.length <= 1) return;
+                const target = document.querySelector(href);
+                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); hamburger.classList.remove('active'); navMenu.classList.remove('active'); }
             });
         });
-
         // Counter animation
         const counters = document.querySelectorAll('.stat-number[data-count]');
-        const observer = new IntersectionObserver(entries => {
+        const cObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const target = +entry.target.dataset.count;
-                    let count = 0;
-                    const increment = target / 50;
-                    const updateCount = () => {
-                        if (count < target) {
-                            count += increment;
-                            entry.target.textContent = Math.ceil(count) + '+';
-                            requestAnimationFrame(updateCount);
-                        } else {
-                            entry.target.textContent = target + '+';
-                        }
-                    };
-                    updateCount();
-                    observer.unobserve(entry.target);
+                    let count = 0; const increment = target / 50;
+                    const updateCount = () => { if (count < target) { count += increment; entry.target.textContent = Math.ceil(count) + '+'; requestAnimationFrame(updateCount); } else { entry.target.textContent = target + '+'; } };
+                    updateCount(); cObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.5 });
-        counters.forEach(c => observer.observe(c));
-
-        // Video Modal
+        counters.forEach(c => cObserver.observe(c));
+        
+        const contactForm = document.getElementById('contactForm');
+        if(contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const nombre = document.getElementById('nombre').value;
+                const telefono = document.getElementById('telefono').value;
+                const servicio = document.getElementById('servicio').value;
+                const fechaEl = document.getElementById('fecha');
+                const fecha = fechaEl ? fechaEl.value : '';
+                const mensaje = document.getElementById('mensaje').value;
+                let text = `Hola! Soy ${nombre}.\nTelefono: ${telefono}\nEvento: ${servicio}`;
+                if (fecha) text += `\nFecha: ${fecha}`;
+                if (mensaje) text += `\nMensaje: ${mensaje}`;
+                window.open(`https://wa.me/5214779203776?text=${encodeURIComponent(text)}`, '_blank');
+            });
+        }
+        
         const videoCards = document.querySelectorAll('.video-card');
         const videoModal = document.getElementById('videoModal');
         const videoFrame = document.getElementById('videoFrame');
         const closeVideoModal = document.getElementById('closeVideoModal');
-
         videoCards.forEach(card => {
             card.addEventListener('click', () => {
                 const videoId = card.dataset.video;
@@ -2498,123 +2031,14 @@
                 videoModal.classList.add('active');
             });
         });
-
-        closeVideoModal.addEventListener('click', () => {
-            videoModal.classList.remove('active');
-            videoFrame.src = '';
-        });
-
-        videoModal.addEventListener('click', e => {
-            if (e.target === videoModal) {
-                videoModal.classList.remove('active');
-                videoFrame.src = '';
-            }
-        });
-
-        // Lightbox
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        let currentIndex = 0;
-
-        galleryItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                currentIndex = index;
-                lightboxImg.src = item.querySelector('img').src;
-                lightbox.classList.add('active');
-            });
-        });
-
-        document.querySelector('.lightbox-close').addEventListener('click', () => {
-            lightbox.classList.remove('active');
-        });
-
-        document.querySelector('.lightbox-prev').addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-            lightboxImg.src = galleryItems[currentIndex].querySelector('img').src;
-        });
-
-        document.querySelector('.lightbox-next').addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % galleryItems.length;
-            lightboxImg.src = galleryItems[currentIndex].querySelector('img').src;
-        });
-
-        // Eventos
-        const eventos = [
-            { nombre: "Bernardo & Fatima", tipo: "boda", fecha: "2026-01-24", url: "https://boda-bernardo-fatima.invitados.org" },
-            { nombre: "Alejandro & Mayra", tipo: "boda", fecha: "2025-12-13", url: "https://boda-alejandro-mayra.invitados.org" },
-            { nombre: "Juan Manuel & Luz", tipo: "boda", fecha: "2025-11-22", url: "https://boda-juan-manuel-luz-mariana.invitados.org" },
-            { nombre: "Itzel & Javier", tipo: "boda", fecha: "2025-12-13", url: "https://boda-itzel-javier.invitados.org" },
-            { nombre: "Jadelik", tipo: "xv", fecha: "2025-11-16", url: "https://jade.invitados.org" },
-            { nombre: "Geraldine", tipo: "xv", fecha: "2025-12-31", url: "https://xv-geraldine.invitados.org" },
-            { nombre: "Alexa & Esmeralda", tipo: "xv", fecha: "2025-11-15", url: "https://alexa-esmeralda.invitados.org" },
-            { nombre: "Natalia Estevez", tipo: "xv", fecha: "2025-12-06", url: "https://natalia-estevez.invitados.org" },
-            { nombre: "Ainhoa Alejandra", tipo: "xv", fecha: "2025-12-20", url: "https://xv-ainhoa-alejandra.invitados.org" },
-            { nombre: "Ariadna Carolina", tipo: "xv", fecha: "2025-12-21", url: "https://xv-ariadna.invitados.org" },
-            { nombre: "Flor Isabel", tipo: "xv", fecha: "2026-02-07", url: "https://xv-flor-isabel.invitados.org" },
-            { nombre: "Camila Espinoza", tipo: "xv", fecha: "2026-01-10", url: "https://xv-camila.invitados.org" }
-        ];
-
-        function formatDate(dateStr) {
-            return new Date(dateStr).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' });
-        }
-
-        function renderEvents(filter = 'all') {
-            const grid = document.getElementById('eventsGrid');
-            let filtered = filter === 'all' ? eventos : eventos.filter(e => e.tipo === filter);
-            filtered.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
-            grid.innerHTML = filtered.map(e => `
-                <div class="event-card">
-                    <div class="event-header ${e.tipo}">
-                        <div class="event-type">${e.tipo === 'boda' ? 'Boda' : 'XV Anos'}</div>
-                        <div class="event-name">${e.nombre}</div>
-                        <div class="event-date"><i class="fas fa-calendar"></i> ${formatDate(e.fecha)}</div>
-                    </div>
-                    <div class="event-body">
-                        <a href="${e.url}" target="_blank" class="event-btn"><i class="fas fa-external-link-alt"></i> Ver Invitacion</a>
-                        <a href="${e.url}/selector.html" target="_blank" class="event-btn" style="margin-top: 10px; background: var(--secondary); color: var(--primary);"><i class="fas fa-images"></i> Selector de Fotos</a>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                renderEvents(btn.dataset.filter);
-            });
-        });
-
-        // Contact form
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const nombre = document.getElementById('nombre').value;
-            const telefono = document.getElementById('telefono').value;
-            const servicio = document.getElementById('servicio').value;
-            const fecha = document.getElementById('fecha').value;
-            const mensaje = document.getElementById('mensaje').value;
-            let text = `Hola! Soy ${nombre}.\nTelefono: ${telefono}\nEvento: ${servicio}`;
-            if (fecha) text += `\nFecha: ${fecha}`;
-            if (mensaje) text += `\nMensaje: ${mensaje}`;
-            window.open(`https://wa.me/5214779203776?text=${encodeURIComponent(text)}`, '_blank');
-        });
-
-        // Init
-        document.addEventListener('DOMContentLoaded', () => {
-            renderEvents();
-        });
-
-        // Keyboard navigation for lightbox
-        document.addEventListener('keydown', e => {
-            if (!lightbox.classList.contains('active')) return;
-            if (e.key === 'Escape') lightbox.classList.remove('active');
-            if (e.key === 'ArrowLeft') document.querySelector('.lightbox-prev').click();
-            if (e.key === 'ArrowRight') document.querySelector('.lightbox-next').click();
-        });
+        if(closeVideoModal) closeVideoModal.addEventListener('click', () => { videoModal.classList.remove('active'); videoFrame.src = ''; });
+        if(videoModal) videoModal.addEventListener('click', e => { if(e.target === videoModal){ videoModal.classList.remove('active'); videoFrame.src = ''; } });
     </script>
 
     <!-- Anime.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+        <!-- Anime.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
     <script>
@@ -3364,6 +2788,7 @@
         });
     </script>
 
+    
 <!-- ══ CHATBOT FORO 7 ══════════════════════════════════════════ -->
 <style>
 /* Oculta el chatbot genérico de la plataforma */
