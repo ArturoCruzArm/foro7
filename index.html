@@ -3328,5 +3328,85 @@
 
         });
     </script>
+
+<!-- ══ CHATBOT FORO 7 ══════════════════════════════════════════ -->
+<style>
+#f7cb-btn{position:fixed;bottom:90px;left:24px;z-index:9998;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#b8860b,#d4af37);border:none;cursor:pointer;box-shadow:0 4px 18px rgba(212,175,55,0.5);display:flex;align-items:center;justify-content:center;font-size:22px;transition:transform .2s;}
+#f7cb-btn:hover{transform:scale(1.1);}
+#f7cb-win{position:fixed;bottom:158px;left:24px;z-index:9997;width:340px;max-height:520px;background:#1a1a2e;border:1px solid rgba(212,175,55,0.3);border-radius:18px;box-shadow:0 8px 40px rgba(0,0,0,0.6);display:none;flex-direction:column;overflow:hidden;}
+#f7cb-head{background:#0f0f1a;border-bottom:1px solid rgba(212,175,55,0.2);padding:12px 14px;display:flex;align-items:center;gap:10px;}
+#f7cb-head img{height:34px;width:auto;}
+#f7cb-hn{color:#d4af37;font-weight:700;font-size:13px;line-height:1.2;}
+#f7cb-hs{color:rgba(255,255,255,0.45);font-size:11px;}
+#f7cb-x{margin-left:auto;background:none;border:none;color:rgba(255,255,255,0.5);font-size:22px;cursor:pointer;line-height:1;padding:0;}
+#f7cb-msgs{overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;max-height:300px;min-height:120px;}
+#f7cb-msgs::-webkit-scrollbar{width:4px;}
+#f7cb-msgs::-webkit-scrollbar-thumb{background:rgba(212,175,55,0.25);border-radius:2px;}
+.cb-bot,.cb-usr{max-width:82%;padding:9px 13px;border-radius:14px;font-size:13px;line-height:1.55;}
+.cb-bot{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.88);border-bottom-left-radius:3px;align-self:flex-start;}
+.cb-usr{background:linear-gradient(135deg,#b8860b,#d4af37);color:#1a1a2e;font-weight:600;border-bottom-right-radius:3px;align-self:flex-end;}
+.cb-dot{display:flex;gap:4px;align-items:center;padding:4px 0;}
+.cb-dot span{width:7px;height:7px;border-radius:50%;background:#d4af37;animation:cbB .85s infinite;}
+.cb-dot span:nth-child(2){animation-delay:.15s;}
+.cb-dot span:nth-child(3){animation-delay:.3s;}
+@keyframes cbB{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+#f7cb-qr{padding:6px 10px;display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid rgba(212,175,55,0.08);}
+.cb-qr{background:rgba(212,175,55,0.09);border:1px solid rgba(212,175,55,0.28);color:#d4af37;padding:5px 10px;border-radius:20px;font-size:11px;cursor:pointer;transition:background .2s;white-space:nowrap;}
+.cb-qr:hover{background:rgba(212,175,55,0.2);}
+#f7cb-form{display:flex;border-top:1px solid rgba(212,175,55,0.12);padding:9px 12px;gap:8px;}
+#f7cb-inp{flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,55,0.18);border-radius:20px;padding:7px 13px;color:#fff;font-size:13px;outline:none;}
+#f7cb-inp::placeholder{color:rgba(255,255,255,0.28);}
+#f7cb-inp:focus{border-color:rgba(212,175,55,0.5);}
+#f7cb-send{background:#d4af37;border:none;border-radius:50%;width:34px;height:34px;color:#1a1a2e;font-size:15px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+@media(max-width:400px){#f7cb-win{width:calc(100vw - 32px);left:16px;}}
+</style>
+<button id="f7cb-btn" onclick="f7T()" aria-label="Abrir chat">💬</button>
+<div id="f7cb-win">
+  <div id="f7cb-head">
+    <img src="logo.png" alt="Foro 7 Producciones">
+    <div><div id="f7cb-hn">Asistente Foro 7</div><div id="f7cb-hs">🟢 En línea</div></div>
+    <button id="f7cb-x" onclick="f7T()">×</button>
+  </div>
+  <div id="f7cb-msgs"></div>
+  <div id="f7cb-qr"></div>
+  <form id="f7cb-form" onsubmit="return false;">
+    <input id="f7cb-inp" placeholder="Escribe tu pregunta..." autocomplete="off">
+    <button id="f7cb-send" type="submit">➤</button>
+  </form>
+</div>
+<script>
+(function(){
+const WA='https://wa.me/5214779203776';
+const KB=[
+  {kw:['hola','buenos','buenas','hey','saludos','tal','como estas'],res:'¡Hola! 👋 Soy el asistente de **Foro 7 Producciones**. Tengo información sobre paquetes, precios y servicios. ¿En qué te ayudo?',qr:['Ver paquetes y precios','Drone 4K +$1,500','Invitación web','Hablar con asesor']},
+  {kw:['precio','precios','costo','cuanto','cuánto','vale','cobran','tarifa','cotizacion'],res:'💰 **Precios Foro 7:**\n\n📷 Básico — **$8,500 MXN**\n⭐ Completo — **$10,000 MXN**\n💎 Premium — **$12,000 MXN**\n🚁 Drone: **+$1,500**\n🎵 Música: **desde +$1,500**\n💌 Invitación web: **desde $3,500**\n🏢 PyME mensual: **desde $3,500/mes**',qr:['Qué incluye cada paquete','Cotizar por WhatsApp']},
+  {kw:['paquete','paquetes','plan','planes','opciones','incluye','tienen','ofrecen','cobertura'],res:'Tenemos 3 paquetes para tu evento:\n\n📷 **Básico $8,500** — 50 fotos, USB 4K, 1h+4h\n⭐ **Completo $10,000** — 100 fotos, película editada, videoclip, 1h+6h\n💎 **Premium $12,000** — 200 fotos o fotolibro lujo, videoclip, caja madera, 1h+8h\n\n¿Cuál te interesa?',qr:['Básico $8,500','Completo $10,000','Premium $12,000']},
+  {kw:['basico','básico','8500'],res:'📷 **Paquete Básico — $8,500 MXN**\n✓ 50 fotos 5×7"\n✓ Película USB 4K\n✓ Foto ampliada 11×14"\n✓ Caja impresa\n✓ 1h ceremonia + 4h fiesta',qr:['Cotizar básico por WhatsApp','Ver completo $10,000','Agregar drone +$1,500']},
+  {kw:['completo','10000','10,000','popular'],res:'⭐ **Paquete Completo — $10,000 MXN** *(más popular)*\n✓ 100 fotos 5×7"\n✓ Película editada y musicalizada\n✓ Videoclip para proyectar\n✓ Foto 50×60cm con marco\n✓ 1h ceremonia + 6h fiesta',qr:['Cotizar completo por WhatsApp','Ver premium $12,000','Agregar drone +$1,500']},
+  {kw:['premium','12000','12,000','lujo','mejor'],res:'💎 **Paquete Premium — $12,000 MXN**\n✓ 200 fotos o fotolibro 30×60 de lujo\n✓ Película editada y musicalizada\n✓ Videoclip para proyectar\n✓ Foto 60×80cm\n✓ Caja de madera\n✓ Sesión previa + día del evento\n✓ 1h ceremonia + 8h fiesta',qr:['Cotizar premium por WhatsApp','Agregar drone +$1,500']},
+  {kw:['drone','dron','aereo','aéreo','aereas','vuelo','altura'],res:'🚁 **Drone 4K — +$1,500 MXN**\nAgregable a cualquier paquete:\n✓ Tomas aéreas únicas\n✓ Videos cinematográficos desde el aire\n✓ Fotografías panorámicas\n\n¡El mercado cobra $2,000–$4,000. Nuestro precio es muy competitivo!',qr:['Cotizar con drone por WhatsApp','Ver paquetes']},
+  {kw:['invitacion','invitación','digital','web','pagina','rsvp','confirmacion','link'],res:'💌 **Invitación Web Digital**\n✓ RSVP, cuenta regresiva, mapa y galería\n\n💍 Boda: **$3,500**\n🌹 XV Años: **$2,800**\n🙏 Bautizo: **$2,000**\n🎓 Graduación: **$2,500**\n👶 Baby Shower: **$1,800**',qr:['Cotizar invitación por WhatsApp','Ver calculadora completa']},
+  {kw:['musica','música','vals','cancion','composicion','audio','melodia'],res:'🎵 **Música Personalizada — desde +$1,500 MXN**\nComposición original:\n✓ Vals o entrada\n✓ Pase de fotos\n✓ Edición de película\n✓ Cualquier género',qr:['Cotizar música por WhatsApp']},
+  {kw:['empresa','negocio','pyme','restaurante','boutique','mensual','contenido','redes','instagram','tiktok'],res:'🏢 **Paquete Presencia Digital — $3,500/mes**\n✓ 1 sesión fotográfica (2h)\n✓ 4 reels editados\n✓ 8 fotos para feed\n✓ Entrega en 72h\n✓ Sin contratos anuales',qr:['Cotizar para mi negocio por WhatsApp']},
+  {kw:['referido','recomendar','descuento','regalo','bono'],res:'🎁 **Programa de Referidos**\nRecomiéndanos → tu referido contrata → tú recibes:\n• Sesión de retratos (valor $2,000)\n• ó $500 de descuento\n\n¡Sin límite de referidos!',qr:['Quiero participar — WhatsApp']},
+  {kw:['contacto','whatsapp','telefono','email','correo','numero'],res:'📞 **Contacto:**\n📱 WhatsApp: **477 920 3776**\n📧 foro7.producciones@hotmail.com\n📍 Padilla 112, Cumbres de Arbide, León, Gto.',qr:['Abrir WhatsApp']},
+  {kw:['donde','dónde','ubicacion','direccion','leon','guanajuato'],res:'📍 **Padilla 112, Cumbres de Arbide**\nLeón, Guanajuato, México\n\nOperamos en toda el área metropolitana de León.',qr:['Contactar por WhatsApp']},
+  {kw:['años','experiencia','tiempo','profesional','confiable','garantia'],res:'⭐ **+15 años de experiencia**\nCientos de bodas, XV años y eventos en León. Video 4K, drone certificado e invitaciones web.',qr:['Ver paquetes','Contactar por WhatsApp']},
+  {kw:['boda','matrimonio','novios','novia','novio','ceremonia'],res:'💍 Para **bodas** te recomendamos:\n⭐ Completo $10,000 (el más elegido)\n💎 Premium $12,000 (con fotolibro de lujo)\n\nAgrega drone +$1,500 e invitación web desde $3,500.',qr:['Cotizar boda por WhatsApp','Ver paquete completo','Ver paquete premium']},
+  {kw:['xv','quince','quinceañera','festejada'],res:'🌹 Para **XV Años:**\n📷 Básico $8,500\n⭐ Completo $10,000 (videoclip para proyectar)\n💎 Premium $12,000 (fotolibro lujo)\n\n➕ Invitación web XV: $2,800\n➕ Vals personalizado: +$1,500',qr:['Cotizar XV por WhatsApp']},
+  {kw:['disponible','fecha','agendar','reservar','cuando'],res:'📅 Para verificar disponibilidad en tu fecha escríbenos por WhatsApp. ¡Las fechas de alta temporada se agotan rápido!',qr:['Verificar disponibilidad — WhatsApp']},
+];
+const FB={res:'No encontré una respuesta exacta 🤔\n\nPuedo ayudarte con **paquetes, precios, drone, invitaciones** o **música**. ¿O prefieres hablar con nuestro equipo?',qr:['Ver paquetes y precios','Contactar por WhatsApp']};
+let open=false,started=false;
+function f7T(){open=!open;document.getElementById('f7cb-win').style.display=open?'flex':'none';document.getElementById('f7cb-btn').innerHTML=open?'✕':'💬';if(open&&!started){started=true;setTimeout(()=>bot(KB[0]),700);}if(open)document.getElementById('f7cb-inp').focus();}
+function bot(intent){const m=document.getElementById('f7cb-msgs');const t=document.createElement('div');t.className='cb-bot cb-dot';t.innerHTML='<span></span><span></span><span></span>';m.appendChild(t);m.scrollTop=m.scrollHeight;setTimeout(()=>{t.remove();const d=document.createElement('div');d.className='cb-bot';d.innerHTML=intent.res.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');m.appendChild(d);const qr=document.getElementById('f7cb-qr');qr.innerHTML='';(intent.qr||[]).forEach(q=>{const b=document.createElement('button');b.className='cb-qr';b.textContent=q;b.onclick=()=>qrClick(q);qr.appendChild(b);});m.scrollTop=m.scrollHeight;},850);}
+function userMsg(t){const m=document.getElementById('f7cb-msgs');const d=document.createElement('div');d.className='cb-usr';d.textContent=t;m.appendChild(d);document.getElementById('f7cb-qr').innerHTML='';m.scrollTop=m.scrollHeight;}
+function qrClick(q){userMsg(q);if(/whatsapp|asesor|cotizar|verificar/i.test(q)){setTimeout(()=>{const m=document.getElementById('f7cb-msgs');const d=document.createElement('div');d.className='cb-bot';d.innerHTML='Te conecto ahora 👋<br><br><a href="'+WA+'?text='+encodeURIComponent('Hola, vengo del sitio web. Me interesa: '+q)+'" target="_blank" style="display:inline-block;background:#25d366;color:#fff;padding:8px 16px;border-radius:20px;text-decoration:none;font-weight:700;font-size:13px;">📱 Abrir WhatsApp</a>';m.appendChild(d);m.scrollTop=m.scrollHeight;},500);return;}setTimeout(()=>bot(match(q)),300);}
+function match(txt){const t=txt.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');let best=null,score=0;KB.forEach(i=>{let s=0;i.kw.forEach(k=>{if(t.includes(k))s++;});if(s>score){score=s;best=i;}});return(best&&score>0)?best:FB;}
+document.getElementById('f7cb-form').addEventListener('submit',()=>{const inp=document.getElementById('f7cb-inp');const v=inp.value.trim();if(!v)return;inp.value='';userMsg(v);setTimeout(()=>bot(match(v)),350);});
+window.f7T=f7T;
+})();
+</script>
+<!-- ══ FIN CHATBOT ══════════════════════════════════════════════ -->
 </body>
 </html>
