@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotografía y Video Corporativo para Empresas | Foro 7 Producciones — León, Gto.</title>
+    <meta name="description" content="Contenido visual profesional para empresas en León, Guanajuato. Fotografía de producto, video corporativo, cobertura de ferias SAPICA/ANPIC y paquetes mensuales para PyMEs. 15+ años de experiencia.">
+    <meta name="keywords" content="fotografía corporativa León, video empresarial León Guanajuato, fotografía producto calzado León, cobertura SAPICA ANPIC, contenido redes sociales PyME, Foro 7 corporativo">
+    <meta property="og:title" content="Contenido Visual para Empresas en León | Foro 7 Producciones">
+    <meta property="og:description" content="Tu marca merece verse profesional. Fotografía, video y drone para empresas en León, Guanajuato. Industria del calzado, manufactura, ferias y PyMEs.">
+    <meta property="og:url" content="https://foro7.invitados.org/corporativo.html">
+    <link rel="canonical" href="https://foro7.invitados.org/corporativo.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0a0a0f;
+            --secondary: #d4af37;
+            --accent: #b8860b;
+            --gold-light: #f5d67b;
+            --dark: #050507;
+            --surface: #111118;
+            --surface2: #1a1a28;
+            --glass: rgba(255,255,255,0.04);
+            --glass-border: rgba(212,175,55,0.2);
+            --text: rgba(255,255,255,0.9);
+            --text-muted: rgba(255,255,255,0.55);
+            --gradient-gold: linear-gradient(135deg, #d4af37 0%, #f5d67b 50%, #d4af37 100%);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--primary); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.2; }
+
+        /* ─── UTILS ─── */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .gold { color: var(--secondary); }
+        .section-label { display: inline-flex; align-items: center; gap: 8px; background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3); color: var(--secondary); padding: 6px 18px; border-radius: 30px; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+        .section-title { font-size: clamp(2rem, 5vw, 3.2rem); color: #fff; margin-bottom: 16px; }
+        .section-sub { color: var(--text-muted); font-size: 1.05rem; max-width: 640px; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; transition: all 0.3s; }
+        .btn-gold { background: var(--gradient-gold); color: #0a0a0f; box-shadow: 0 4px 20px rgba(212,175,55,0.35); }
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,175,55,0.5); }
+        .btn-outline { background: transparent; border: 1.5px solid var(--secondary); color: var(--secondary); }
+        .btn-outline:hover { background: var(--secondary); color: #0a0a0f; }
+        .btn-wa { background: #25d366; color: #fff; }
+        .btn-wa:hover { background: #20b858; transform: translateY(-2px); }
+
+        /* ─── NAV ─── */
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(5,5,7,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo img { height: 36px; width: auto; }
+        .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: #fff; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-muted); font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--secondary); }
+        .nav-cta { background: var(--gradient-gold); color: #0a0a0f !important; padding: 8px 20px; border-radius: 4px; }
+        .nav-cta:hover { transform: translateY(-1px); }
+        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; }
+
+        /* ─── HERO ─── */
+        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 64px; }
+        .hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80') center/cover no-repeat; filter: brightness(0.3) saturate(0.6); }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(5,5,7,0.9) 40%, rgba(5,5,7,0.4) 100%); }
+        .hero-content { position: relative; z-index: 2; padding: 80px 0; max-width: 680px; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.4); color: var(--secondary); padding: 8px 20px; border-radius: 30px; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 28px; }
+        .hero h1 { font-size: clamp(2.8rem, 7vw, 5rem); color: #fff; margin-bottom: 24px; }
+        .hero h1 em { color: var(--secondary); font-style: normal; display: block; }
+        .hero-desc { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 40px; max-width: 560px; }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+        .hero-stats { display: flex; gap: 40px; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
+        .hero-stat .val { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 700; color: var(--secondary); line-height: 1; }
+        .hero-stat .lbl { font-size: 12px; color: var(--text-muted); letter-spacing: 1px; margin-top: 4px; }
+
+        /* ─── TRUST BAR ─── */
+        .trust-bar { background: var(--surface); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); padding: 22px 0; }
+        .trust-bar-inner { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: 10px; color: var(--text-muted); font-size: 13px; font-weight: 600; letter-spacing: 0.5px; }
+        .trust-item i { color: var(--secondary); font-size: 16px; }
+
+        /* ─── SERVICES ─── */
+        .services { padding: 100px 0; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+        .service-card { background: var(--surface); border: 1px solid var(--glass-border); border-radius: 8px; padding: 36px 28px; position: relative; overflow: hidden; transition: transform 0.3s, border-color 0.3s; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gradient-gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+        .service-card:hover { transform: translateY(-4px); border-color: rgba(212,175,55,0.5); }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-icon { width: 56px; height: 56px; background: rgba(212,175,55,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; }
+        .service-card h3 { font-size: 1.4rem; color: #fff; margin-bottom: 10px; }
+        .service-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 16px; }
+        .service-card .price-from { font-size: 0.82rem; color: var(--secondary); font-weight: 700; letter-spacing: 0.5px; }
+
+        /* ─── INDUSTRIES ─── */
+        .industries { padding: 100px 0; background: var(--surface); }
+        .industries-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 56px; }
+        .industry-card { background: var(--primary); border: 1px solid var(--glass-border); border-radius: 8px; padding: 32px 22px; text-align: center; transition: transform 0.3s, border-color 0.3s; }
+        .industry-card:hover { transform: translateY(-4px); border-color: rgba(212,175,55,0.5); }
+        .industry-card .ind-icon { font-size: 40px; margin-bottom: 16px; display: block; }
+        .industry-card h3 { font-size: 1.2rem; color: #fff; margin-bottom: 8px; }
+        .industry-card p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* ─── FERIAS ─── */
+        .ferias { padding: 100px 0; position: relative; overflow: hidden; }
+        .ferias::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&q=80') center/cover no-repeat; filter: brightness(0.15); }
+        .ferias-content { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .ferias-list { list-style: none; margin: 24px 0 36px; display: flex; flex-direction: column; gap: 14px; }
+        .ferias-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; color: var(--text-muted); }
+        .ferias-list li i { color: var(--secondary); margin-top: 4px; flex-shrink: 0; }
+        .ferias-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+        .feria-badge { background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.4); color: var(--secondary); padding: 8px 18px; border-radius: 30px; font-size: 13px; font-weight: 700; letter-spacing: 1px; }
+        .ferias-visual { background: var(--surface2); border: 1px solid var(--glass-border); border-radius: 8px; padding: 36px; display: flex; flex-direction: column; gap: 20px; }
+        .feria-item { display: flex; gap: 16px; align-items: flex-start; }
+        .feria-item .fi-icon { width: 44px; height: 44px; background: rgba(212,175,55,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+        .feria-item h4 { font-size: 1.05rem; color: #fff; margin-bottom: 4px; }
+        .feria-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* ─── PAQUETES ─── */
+        .packages { padding: 100px 0; background: var(--surface); }
+        .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+        .pkg-card { background: var(--primary); border: 1px solid var(--glass-border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s; }
+        .pkg-card:hover { transform: translateY(-4px); }
+        .pkg-card.featured { border-color: var(--secondary); position: relative; }
+        .pkg-card.featured::after { content: 'MÁS POPULAR'; position: absolute; top: 16px; right: 16px; background: var(--gradient-gold); color: #0a0a0f; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px; }
+        .pkg-header { padding: 28px 28px 20px; border-bottom: 1px solid var(--glass-border); }
+        .pkg-icon { font-size: 28px; margin-bottom: 12px; }
+        .pkg-header h3 { font-size: 1.4rem; color: #fff; margin-bottom: 6px; }
+        .pkg-header .pkg-target { font-size: 12px; color: var(--secondary); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        .pkg-price { margin-top: 16px; }
+        .pkg-price .desde { font-size: 12px; color: var(--text-muted); }
+        .pkg-price .amount { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 700; color: var(--secondary); line-height: 1; }
+        .pkg-price .period { font-size: 13px; color: var(--text-muted); margin-left: 4px; }
+        .pkg-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+        .pkg-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; flex: 1; }
+        .pkg-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-muted); }
+        .pkg-features li i { color: var(--secondary); flex-shrink: 0; margin-top: 3px; }
+        .pkg-cta { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 13px; border-radius: 4px; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; cursor: pointer; border: 1.5px solid var(--secondary); color: var(--secondary); transition: all 0.3s; }
+        .pkg-cta:hover, .pkg-card.featured .pkg-cta { background: var(--secondary); color: #0a0a0f; border-color: var(--secondary); }
+
+        /* ─── PROCESO ─── */
+        .proceso { padding: 100px 0; }
+        .proceso-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 60px; position: relative; }
+        .proceso-steps::before { content: ''; position: absolute; top: 28px; left: 14%; right: 14%; height: 1px; background: linear-gradient(to right, transparent, rgba(212,175,55,0.4) 20%, rgba(212,175,55,0.4) 80%, transparent); }
+        .step { text-align: center; padding: 0 12px; }
+        .step-num { width: 56px; height: 56px; border-radius: 50%; background: rgba(212,175,55,0.1); border: 2px solid rgba(212,175,55,0.4); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--secondary); margin: 0 auto 20px; position: relative; z-index: 1; }
+        .step h4 { font-size: 1.05rem; color: #fff; margin-bottom: 8px; }
+        .step p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* ─── ROI ─── */
+        .roi { padding: 100px 0; background: var(--surface); }
+        .roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 56px; }
+        .roi-points { display: flex; flex-direction: column; gap: 28px; }
+        .roi-point { display: flex; gap: 20px; }
+        .roi-point .rp-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: rgba(212,175,55,0.3); line-height: 1; flex-shrink: 0; width: 36px; }
+        .roi-point h4 { font-size: 1.1rem; color: #fff; margin-bottom: 6px; }
+        .roi-point p { font-size: 0.9rem; color: var(--text-muted); }
+        .roi-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .roi-stat { background: var(--primary); border: 1px solid var(--glass-border); border-radius: 8px; padding: 28px 24px; text-align: center; }
+        .roi-stat .rs-val { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 700; color: var(--secondary); line-height: 1; }
+        .roi-stat .rs-lbl { font-size: 12px; color: var(--text-muted); margin-top: 8px; letter-spacing: 0.5px; }
+
+        /* ─── CTA BAND ─── */
+        .cta-band { padding: 90px 0; background: linear-gradient(135deg, #0d0d1a 0%, #1a1a28 100%); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); text-align: center; }
+        .cta-band h2 { font-size: clamp(2rem, 5vw, 3.4rem); color: #fff; margin-bottom: 16px; }
+        .cta-band p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 40px; max-width: 560px; margin-left: auto; margin-right: auto; }
+        .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        /* ─── CONTACTO ─── */
+        .contacto { padding: 100px 0; }
+        .contacto-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; margin-top: 56px; align-items: start; }
+        .contact-info { display: flex; flex-direction: column; gap: 24px; }
+        .ci-item { display: flex; gap: 16px; align-items: flex-start; }
+        .ci-icon { width: 44px; height: 44px; background: rgba(212,175,55,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--secondary); flex-shrink: 0; }
+        .ci-item h4 { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .ci-item p, .ci-item a { font-size: 0.95rem; color: #fff; text-decoration: none; }
+        .ci-item a:hover { color: var(--secondary); }
+        .contact-form { background: var(--surface); border: 1px solid var(--glass-border); border-radius: 8px; padding: 40px; }
+        .contact-form h3 { font-size: 1.8rem; color: #fff; margin-bottom: 28px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px; padding: 12px 16px; color: #fff; font-family: 'Montserrat', sans-serif;
+            font-size: 14px; outline: none; transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--secondary); }
+        .form-group select option { background: #1a1a28; }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+        .form-actions { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+        .form-wa-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; background: #25d366; color: #fff; border: none; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+        .form-wa-btn:hover { background: #20b858; }
+        .form-email-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; background: var(--gradient-gold); color: #0a0a0f; border: none; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s; }
+        .form-email-btn:hover { opacity: 0.9; }
+
+        /* ─── FAQ ─── */
+        .faq { padding: 100px 0; background: var(--surface); }
+        .faq-list { margin-top: 56px; max-width: 800px; display: flex; flex-direction: column; gap: 12px; }
+        .faq-item { background: var(--primary); border: 1px solid var(--glass-border); border-radius: 6px; overflow: hidden; }
+        .faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; background: none; border: none; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; text-align: left; gap: 12px; }
+        .faq-q i { color: var(--secondary); transition: transform 0.3s; flex-shrink: 0; }
+        .faq-q.open i { transform: rotate(45deg); }
+        .faq-a { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s; }
+        .faq-a.open { max-height: 400px; padding: 0 24px 20px; }
+        .faq-a p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
+
+        /* ─── FOOTER ─── */
+        .footer { background: var(--dark); border-top: 1px solid var(--glass-border); padding: 48px 0 28px; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+        .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #fff; }
+        .footer-logo span { color: var(--secondary); }
+        .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-muted); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--secondary); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .footer-bottom p { color: var(--text-muted); font-size: 12px; }
+
+        /* ─── WA FLOAT ─── */
+        .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; width: 56px; height: 56px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #fff; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.5); transition: transform 0.2s; }
+        .wa-float:hover { transform: scale(1.1); }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .packages-grid { grid-template-columns: 1fr 1fr; }
+            .industries-grid { grid-template-columns: repeat(2, 1fr); }
+            .ferias-content { grid-template-columns: 1fr; gap: 40px; }
+            .roi-grid { grid-template-columns: 1fr; gap: 40px; }
+            .contacto-grid { grid-template-columns: 1fr; gap: 40px; }
+            .proceso-steps { grid-template-columns: repeat(2, 1fr); }
+            .proceso-steps::before { display: none; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-toggle { display: block; }
+            .services-grid, .packages-grid, .industries-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .roi-stats { grid-template-columns: 1fr 1fr; }
+            .packages-grid .pkg-card:nth-child(3) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────── -->
+<nav class="nav">
+    <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="Foro 7 Producciones">
+        <span class="nav-logo-text">Foro 7</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="bodas.html">Bodas</a></li>
+        <li><a href="xv-anos.html">XV A&ntilde;os</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="corporativo.html" class="active">Corporativo</a></li>
+        <li><a href="https://wa.me/5214779203776" class="nav-cta" target="_blank" rel="noopener">Cotizar</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-building"></i> Servicios Corporativos — León, Gto.</div>
+            <h1>Tu marca merece <em>verse profesional</em></h1>
+            <p class="hero-desc">Fotografía, video y drone para empresas en León, Guanajuato. Industria del calzado, manufactura, ferias SAPICA &amp; ANPIC, y PyMEs. Más de 15 años de experiencia visual.</p>
+            <div class="hero-actions">
+                <a href="#contacto" class="btn btn-gold"><i class="fas fa-envelope"></i> Solicitar Cotización</a>
+                <a href="https://wa.me/5214779203776?text=Hola,%20me%20interesa%20servicios%20corporativos%20de%20Foro%207" class="btn btn-wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Directo</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><div class="val">15+</div><div class="lbl">Años de trayectoria</div></div>
+                <div class="hero-stat"><div class="val">6ª</div><div class="lbl">Ciudad más importante de México</div></div>
+                <div class="hero-stat"><div class="val">4K</div><div class="lbl">Producción de video</div></div>
+                <div class="hero-stat"><div class="val">360°</div><div class="lbl">Cobertura con Drone</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── TRUST BAR ─────────────────────────────────────────── -->
+<div class="trust-bar">
+    <div class="trust-bar-inner">
+        <div class="trust-item"><i class="fas fa-shoe-prints"></i> Industria del Calzado</div>
+        <div class="trust-item"><i class="fas fa-industry"></i> Manufactura</div>
+        <div class="trust-item"><i class="fas fa-trophy"></i> SAPICA &amp; ANPIC</div>
+        <div class="trust-item"><i class="fas fa-store"></i> PyMEs Leonesas</div>
+        <div class="trust-item"><i class="fas fa-handshake"></i> Eventos Corporativos</div>
+        <div class="trust-item"><i class="fab fa-instagram"></i> Contenido para Redes</div>
+    </div>
+</div>
+
+<!-- ── SERVICIOS CORPORATIVOS ─────────────────────────────── -->
+<section class="services" id="servicios">
+    <div class="container">
+        <div class="section-label"><i class="fas fa-camera"></i> Lo que ofrecemos</div>
+        <h2 class="section-title">Servicios para <span class="gold">empresas</span></h2>
+        <p class="section-sub">Contenido visual que convierte, diferencia y posiciona tu marca en el mercado leonés y nacional.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📦</div>
+                <h3>Fotografía de Producto</h3>
+                <p>Catálogos, lookbooks y fotograf&iacute;a de producto sobre fondo blanco o en ambiente. Ideal para calzado, moda, muebles, alimentos y manufactura. Im&aacute;genes optimizadas para e-commerce, Amazon, sitio web y redes.</p>
+                <div class="price-from">Desde $3,500 MXN / sesi&oacute;n</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎬</div>
+                <h3>Video Corporativo</h3>
+                <p>Videos institucionales, de producto, testimoniales de clientes y presentaciones para inversores. Producci&oacute;n 4K con gu&iacute;on, direcci&oacute;n, m&uacute;sica licenciada y edici&oacute;n profesional.</p>
+                <div class="price-from">Desde $8,000 MXN / proyecto</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👤</div>
+                <h3>Fotografía Ejecutiva</h3>
+                <p>Headshots profesionales para directivos, equipos y perfiles de LinkedIn. Sesi&oacute;n individual o grupal en estudio o instalaciones de la empresa. Entrega en formatos digitales de alta resoluci&oacute;n.</p>
+                <div class="price-from">Desde $2,500 MXN / sesi&oacute;n</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎪</div>
+                <h3>Cobertura de Eventos</h3>
+                <p>Congreso, lanzamiento de producto, convenci&oacute;n de ventas, inauguraci&oacute;n, cena corporativa o feria comercial. Foto y video de alta producci&oacute;n para memorias institucionales y comunicaci&oacute;n interna.</p>
+                <div class="price-from">Desde $5,000 MXN / evento</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Contenido Mensual para Redes</h3>
+                <p>Paquete recurrente de foto y video para alimentar Instagram, Facebook, TikTok y LinkedIn. Sesi&oacute;n mensual + edici&oacute;n + entrega programada. Perfecto para PyMEs que necesitan presencia visual constante.</p>
+                <div class="price-from">Desde $3,500 MXN / mes</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚁</div>
+                <h3>Drone Corporativo</h3>
+                <p>Tomas a&eacute;reas de plantas industriales, bodegas, desarrollos inmobiliarios, instalaciones y stands en ferias. Piloto certificado, video 4K y fotograf&iacute;a panor&aacute;mica desde el aire.</p>
+                <div class="price-from">Desde $4,500 MXN / sesi&oacute;n</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── INDUSTRIAS ─────────────────────────────────────────── -->
+<section class="industries" id="industrias">
+    <div class="container">
+        <div class="section-label"><i class="fas fa-industry"></i> Sectores</div>
+        <h2 class="section-title">Industrias que <span class="gold">servimos</span></h2>
+        <p class="section-sub">Le&oacute;n es la capital mundial del calzado y un polo industrial consolidado. Conocemos sus mercados a fondo.</p>
+
+        <div class="industries-grid">
+            <div class="industry-card">
+                <span class="ind-icon">👟</span>
+                <h3>Calzado &amp; Moda</h3>
+                <p>Cat&aacute;logos de temporada, lookbooks, fotograf&iacute;a de producto para marcas de calzado, cuero y accesorios. Ideal para exportaci&oacute;n y e-commerce.</p>
+            </div>
+            <div class="industry-card">
+                <span class="ind-icon">🏭</span>
+                <h3>Manufactura &amp; Industria</h3>
+                <p>Videos institucionales, fotograf&iacute;a de planta, cobertura de procesos productivos y materiales para presentaciones corporativas.</p>
+            </div>
+            <div class="industry-card">
+                <span class="ind-icon">🍽️</span>
+                <h3>Restaurantes &amp; Alimentos</h3>
+                <p>Fotograf&iacute;a gastron&oacute;mica, video de ambiente y contenido mensual para restaurantes, cafeter&iacute;as y productores de alimentos en Le&oacute;n.</p>
+            </div>
+            <div class="industry-card">
+                <span class="ind-icon">🏪</span>
+                <h3>PyMEs &amp; Comercio</h3>
+                <p>Paquetes accesibles de contenido mensual para peque&ntilde;as y medianas empresas que buscan crecer su presencia en redes sociales y Google.</p>
+            </div>
+            <div class="industry-card">
+                <span class="ind-icon">🏗️</span>
+                <h3>Inmobiliario &amp; Construcci&oacute;n</h3>
+                <p>Fotograf&iacute;a arquitect&oacute;nica, recorridos virtuales, tomas a&eacute;reas con drone para desarrollos residenciales y comerciales en Guanajuato.</p>
+            </div>
+            <div class="industry-card">
+                <span class="ind-icon">💼</span>
+                <h3>Servicios Profesionales</h3>
+                <p>Despachos de abogados, cl&iacute;nicas, consultorios y empresas de servicios que necesitan una imagen visual s&oacute;lida y confiable para atraer clientes.</p>
+            </div>
+            <div class="industry-card">
+                <span class="ind-icon">🎓</span>
+                <h3>Educaci&oacute;n &amp; Instituciones</h3>
+                <p>Videos institucionales para escuelas, universidades e instituciones p&uacute;blicas. Cobertura de graduaciones, congresos y eventos acad&eacute;micos.</p>
+            </div>
+            <div class="industry-card">
+                <span class="ind-icon">🏨</span>
+                <h3>Turismo &amp; Hospitalidad</h3>
+                <p>Fotograf&iacute;a y video para hoteles, venues de eventos, balnearios y atracciones tur&iacute;sticas de Le&oacute;n y Guanajuato.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FERIAS ─────────────────────────────────────────────── -->
+<section class="ferias" id="ferias">
+    <div class="container">
+        <div class="ferias-content">
+            <div>
+                <div class="section-label"><i class="fas fa-trophy"></i> Ferias internacionales</div>
+                <h2 class="section-title">SAPICA, ANPIC <span class="gold">&amp; m&aacute;s</span></h2>
+                <p style="color:var(--text-muted); margin-bottom: 12px;">Le&oacute;n es sede de las ferias m&aacute;s importantes de la industria del calzado y cuero en Am&eacute;rica Latina. Tenemos experiencia cubriendo estos eventos de clase mundial.</p>
+                <ul class="ferias-list">
+                    <li><i class="fas fa-check-circle"></i> Cobertura fotogr&aacute;fica y video de stands y exposiciones</li>
+                    <li><i class="fas fa-check-circle"></i> Drone sobre el recinto ferial y &aacute;reas exteriores</li>
+                    <li><i class="fas fa-check-circle"></i> Entrevistas en c&aacute;mara a ejecutivos y compradores</li>
+                    <li><i class="fas fa-check-circle"></i> Contenido para redes en tiempo real durante la feria</li>
+                    <li><i class="fas fa-check-circle"></i> Archivo de alta resoluci&oacute;n para prensa y comunicaci&oacute;n</li>
+                    <li><i class="fas fa-check-circle"></i> Edici&oacute;n y entrega exprés en 24-48 horas</li>
+                </ul>
+                <div class="ferias-badges">
+                    <span class="feria-badge">SAPICA</span>
+                    <span class="feria-badge">ANPIC</span>
+                    <span class="feria-badge">ANTAD</span>
+                    <span class="feria-badge">Expo Le&oacute;n</span>
+                </div>
+            </div>
+            <div class="ferias-visual">
+                <div class="feria-item">
+                    <div class="fi-icon">📍</div>
+                    <div>
+                        <h4>Poliforum Le&oacute;n</h4>
+                        <p>Experiencia en el principal recinto ferial de Guanajuato. Conocemos las log&iacute;sticas, accesos y mejores &aacute;ngulos del espacio.</p>
+                    </div>
+                </div>
+                <div class="feria-item">
+                    <div class="fi-icon">🚁</div>
+                    <div>
+                        <h4>Drone Certificado</h4>
+                        <p>Piloto con permiso SCT para vuelo en eventos. Obtenemos autorizaci&oacute;n y volamos donde otros no pueden.</p>
+                    </div>
+                </div>
+                <div class="feria-item">
+                    <div class="fi-icon">⚡</div>
+                    <div>
+                        <h4>Entrega Exprés</h4>
+                        <p>Selección de fotos en 24 h, video completo en 72 h. Ideal para comunicar resultados mientras la feria a&uacute;n est&aacute; en curso.</p>
+                    </div>
+                </div>
+                <div class="feria-item">
+                    <div class="fi-icon">💰</div>
+                    <div>
+                        <h4>Paquetes desde $12,000 MXN</h4>
+                        <p>Incluye foto, video y drone por 1 d&iacute;a completo de feria. Multi-d&iacute;a con descuento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── PAQUETES ─────────────────────────────────────────────── -->
+<section class="packages" id="paquetes">
+    <div class="container">
+        <div class="section-label"><i class="fas fa-box"></i> Precios</div>
+        <h2 class="section-title">Paquetes <span class="gold">corporativos</span></h2>
+        <p class="section-sub">Opciones dise&ntilde;adas para empresas de todos los tama&ntilde;os. Adaptamos cada paquete a tus necesidades específicas.</p>
+
+        <div class="packages-grid">
+            <!-- ESENCIAL -->
+            <div class="pkg-card">
+                <div class="pkg-header">
+                    <div class="pkg-icon">⚡</div>
+                    <h3>Esencial</h3>
+                    <div class="pkg-target">PyMEs · Arranque</div>
+                    <div class="pkg-price">
+                        <div class="desde">desde</div>
+                        <div><span class="amount">$3,500</span><span class="period">MXN</span></div>
+                    </div>
+                </div>
+                <div class="pkg-body">
+                    <ul class="pkg-features">
+                        <li><i class="fas fa-check"></i> Sesi&oacute;n fotogr&aacute;fica de 2 horas</li>
+                        <li><i class="fas fa-check"></i> 30 fotos editadas en alta resoluci&oacute;n</li>
+                        <li><i class="fas fa-check"></i> Versiones para redes sociales y web</li>
+                        <li><i class="fas fa-check"></i> Entrega en 5 d&iacute;as h&aacute;biles</li>
+                        <li><i class="fas fa-check"></i> 1 ronda de revisiones</li>
+                    </ul>
+                    <a href="#contacto" class="pkg-cta">Solicitar info <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- PROFESIONAL (featured) -->
+            <div class="pkg-card featured">
+                <div class="pkg-header">
+                    <div class="pkg-icon">🏆</div>
+                    <h3>Profesional</h3>
+                    <div class="pkg-target">Empresas establecidas</div>
+                    <div class="pkg-price">
+                        <div class="desde">desde</div>
+                        <div><span class="amount">$8,500</span><span class="period">MXN</span></div>
+                    </div>
+                </div>
+                <div class="pkg-body">
+                    <ul class="pkg-features">
+                        <li><i class="fas fa-check"></i> Sesi&oacute;n fotogr&aacute;fica de 4 horas</li>
+                        <li><i class="fas fa-check"></i> 80 fotos editadas en alta resoluci&oacute;n</li>
+                        <li><i class="fas fa-check"></i> Video corporativo de 60-90 segundos</li>
+                        <li><i class="fas fa-check"></i> Versi&oacute;n para Reels e Instagram</li>
+                        <li><i class="fas fa-check"></i> M&uacute;sica licenciada incluida</li>
+                        <li><i class="fas fa-check"></i> Entrega en 7 d&iacute;as h&aacute;biles</li>
+                        <li><i class="fas fa-check"></i> 2 rondas de revisiones</li>
+                    </ul>
+                    <a href="#contacto" class="pkg-cta">Solicitar info <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- PREMIUM -->
+            <div class="pkg-card">
+                <div class="pkg-header">
+                    <div class="pkg-icon">🚁</div>
+                    <h3>Premium</h3>
+                    <div class="pkg-target">Corporativo · Feria · Gran empresa</div>
+                    <div class="pkg-price">
+                        <div class="desde">desde</div>
+                        <div><span class="amount">$18,000</span><span class="period">MXN</span></div>
+                    </div>
+                </div>
+                <div class="pkg-body">
+                    <ul class="pkg-features">
+                        <li><i class="fas fa-check"></i> D&iacute;a completo de producci&oacute;n (8 h)</li>
+                        <li><i class="fas fa-check"></i> 150+ fotos editadas</li>
+                        <li><i class="fas fa-check"></i> Video corporativo 2-3 minutos 4K</li>
+                        <li><i class="fas fa-check"></i> Drone: tomas a&eacute;reas incluidas</li>
+                        <li><i class="fas fa-check"></i> Cortes para redes (Reels, Stories, YT)</li>
+                        <li><i class="fas fa-check"></i> Headshots ejecutivos incluidos</li>
+                        <li><i class="fas fa-check"></i> Entrega prioritaria en 5 d&iacute;as</li>
+                        <li><i class="fas fa-check"></i> Revisiones ilimitadas</li>
+                    </ul>
+                    <a href="#contacto" class="pkg-cta">Solicitar info <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENIDO MENSUAL DESTACADO -->
+        <div style="margin-top: 40px; background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(212,175,55,0.02)); border: 1px solid rgba(212,175,55,0.35); border-radius: 8px; padding: 36px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;">
+            <div>
+                <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(212,175,55,0.12); border:1px solid rgba(212,175,55,0.3); color:var(--secondary); padding:4px 14px; border-radius:20px; font-size:11px; font-weight:700; letter-spacing:2px; margin-bottom:14px;">⭐ RECOMENDADO PARA PYMES</div>
+                <h3 style="font-size:1.8rem; color:#fff; margin-bottom:8px;">Plan Contenido Mensual</h3>
+                <p style="color:var(--text-muted); font-size:0.95rem; max-width:600px;">Sesi&oacute;n mensual de foto + video + edici&oacute;n + entrega programada para redes sociales. El combustible visual de tu negocio, sin complicaciones. Ingresos recurrentes para nosotros, presencia constante para ti.</p>
+                <div style="display:flex; gap:24px; margin-top:20px; flex-wrap:wrap;">
+                    <span style="font-size:0.85rem; color:var(--text-muted);"><i class="fas fa-check" style="color:var(--secondary); margin-right:6px;"></i>8 fotos editadas / mes</span>
+                    <span style="font-size:0.85rem; color:var(--text-muted);"><i class="fas fa-check" style="color:var(--secondary); margin-right:6px;"></i>2 Reels / mes</span>
+                    <span style="font-size:0.85rem; color:var(--text-muted);"><i class="fas fa-check" style="color:var(--secondary); margin-right:6px;"></i>Sesi&oacute;n 2 h mensual</span>
+                    <span style="font-size:0.85rem; color:var(--text-muted);"><i class="fas fa-check" style="color:var(--secondary); margin-right:6px;"></i>Sin contrato anual</span>
+                </div>
+            </div>
+            <div style="text-align:center; flex-shrink:0;">
+                <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:6px;">desde</div>
+                <div style="font-family:'Cormorant Garamond',serif; font-size:3.2rem; font-weight:700; color:var(--secondary); line-height:1;">$3,500</div>
+                <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px;">MXN / mes</div>
+                <a href="#contacto" class="btn btn-gold" style="white-space:nowrap;"><i class="fas fa-rocket"></i> Empezar</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── PROCESO ─────────────────────────────────────────────── -->
+<section class="proceso" id="proceso">
+    <div class="container">
+        <div class="section-label"><i class="fas fa-route"></i> C&oacute;mo trabajamos</div>
+        <h2 class="section-title">Proceso <span class="gold">simple</span></h2>
+        <div class="proceso-steps">
+            <div class="step">
+                <div class="step-num">01</div>
+                <h4>Consulta</h4>
+                <p>Cotizaci&oacute;n sin costo. Entendemos tus objetivos, mercado y presupuesto en una llamada o reuni&oacute;n.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">02</div>
+                <h4>Brief &amp; Propuesta</h4>
+                <p>Preparamos un brief visual y una propuesta detallada con alcance, cronograma y precios.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">03</div>
+                <h4>Producci&oacute;n</h4>
+                <p>Ejecutamos la sesi&oacute;n con direcci&oacute;n art&iacute;stica. Foto, video y drone en un proceso fluido y profesional.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">04</div>
+                <h4>Entrega &amp; Uso</h4>
+                <p>Archivos editados listos para usar en web, redes y prensa. Acceso desde la nube, licencia comercial incluida.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── ROI ─────────────────────────────────────────────────── -->
+<section class="roi">
+    <div class="container">
+        <div class="roi-grid">
+            <div>
+                <div class="section-label"><i class="fas fa-chart-line"></i> El valor del contenido visual</div>
+                <h2 class="section-title">Por qu&eacute; invertir en <span class="gold">contenido profesional</span></h2>
+                <div class="roi-points">
+                    <div class="roi-point">
+                        <span class="rp-num">01</span>
+                        <div>
+                            <h4>Primera impresi&oacute;n digital</h4>
+                            <p>El 75% de los consumidores juzgan la credibilidad de una empresa por su presencia visual. Fotos y videos profesionales generan m&aacute;s confianza que cualquier texto.</p>
+                        </div>
+                    </div>
+                    <div class="roi-point">
+                        <span class="rp-num">02</span>
+                        <div>
+                            <h4>Mayor conversi&oacute;n en ventas</h4>
+                            <p>Productos con fotograf&iacute;a profesional se venden hasta 3x m&aacute;s en plataformas digitales. El contenido de video aumenta la tasa de conversi&oacute;n en un 80%.</p>
+                        </div>
+                    </div>
+                    <div class="roi-point">
+                        <span class="rp-num">03</span>
+                        <div>
+                            <h4>Ventaja competitiva sostenible</h4>
+                            <p>En Le&oacute;n, pocas empresas invierten en contenido visual de alto nivel. Ser de las primeras en tu sector con producci&oacute;n profesional te diferencia de forma inmediata y duradera.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="roi-stats">
+                <div class="roi-stat">
+                    <div class="rs-val">3×</div>
+                    <div class="rs-lbl">M&aacute;s ventas con foto profesional</div>
+                </div>
+                <div class="roi-stat">
+                    <div class="rs-val">80%</div>
+                    <div class="rs-lbl">Mayor conversi&oacute;n con video</div>
+                </div>
+                <div class="roi-stat">
+                    <div class="rs-val">94%</div>
+                    <div class="rs-lbl">Contenido visual genera m&aacute;s vistas</div>
+                </div>
+                <div class="roi-stat">
+                    <div class="rs-val">+15</div>
+                    <div class="rs-lbl">A&ntilde;os documentando empresas en Le&oacute;n</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CTA BAND ─────────────────────────────────────────────── -->
+<section class="cta-band">
+    <div class="container">
+        <h2>Listos para hacer <span class="gold">crecer tu marca</span></h2>
+        <p>Cont&aacute;ctanos hoy y recibe una cotizaci&oacute;n personalizada sin costo. Primera reuni&oacute;n de diagn&oacute;stico gratis.</p>
+        <div class="cta-actions">
+            <a href="#contacto" class="btn btn-gold"><i class="fas fa-envelope"></i> Cotizar ahora — es gratis</a>
+            <a href="https://wa.me/5214779203776?text=Hola,%20quiero%20cotizar%20servicios%20corporativos" class="btn btn-wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> 477-920-3776</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── FAQ ─────────────────────────────────────────────────── -->
+<section class="faq">
+    <div class="container">
+        <div class="section-label"><i class="fas fa-question-circle"></i> FAQ Empresas</div>
+        <h2 class="section-title">Preguntas <span class="gold">frecuentes</span></h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    ¿Cuánto tiempo tarda la entrega del material?
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-a">
+                    <p>Fotograf&iacute;a: 3-5 d&iacute;as h&aacute;biles. Video completo: 7-10 d&iacute;as h&aacute;biles. Para ferias y eventos con necesidad de publicaci&oacute;n inmediata ofrecemos entrega exprés de una selecci&oacute;n en 24 horas con cargo adicional.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    ¿Pueden grabar dentro de una planta industrial?
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-a">
+                    <p>S&iacute;. Tenemos experiencia en entornos industriales: f&aacute;bricas, bodegas, plantas de manufactura. Coordinamos el acceso con el &aacute;rea de seguridad y adaptamos el equipo a las condiciones del espacio (iluminaci&oacute;n artificial, espacios reducidos, exterior/interior).</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    ¿El drone requiere permisos especiales para ferias?
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-a">
+                    <p>S&iacute;. Nuestro piloto cuenta con la certificaci&oacute;n AFAC (antes AFAC/SCT) y gestionamos los permisos correspondientes para volar en &aacute;reas espec&iacute;ficas. Coordinamos con los organizadores de la feria (Expo Le&oacute;n, Poliforum) para obtener autorizaci&oacute;n. Este tr&aacute;mite est&aacute; incluido en los paquetes con drone.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    ¿Los archivos tienen licencia comercial?
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-a">
+                    <p>S&iacute;. Todo el material entregado es de uso comercial irrestricto para la empresa contratante: sitio web, redes sociales, publicidad impresa y digital, presentaciones, TV y medios. Entregamos archivos en alta resoluci&oacute;n (RAW o TIFF procesado para foto; MP4 4K para video).</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    ¿El paquete mensual tiene contrato de permanencia?
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-a">
+                    <p>No exigimos contrato anual. El plan mensual se puede cancelar con 15 d&iacute;as de aviso. Sin embargo, los clientes con compromiso de 3 o 6 meses reciben un descuento del 10-15% en el precio mensual.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    ¿Pueden hacer fotografía de producto para catálogos de exportación?
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-a">
+                    <p>S&iacute;, es una de nuestras especialidades. Preparamos im&aacute;genes conforme a los est&aacute;ndares de plataformas internacionales (Amazon US, Made-in-China, marketplace europeos). Fondo blanco 255,255,255 certificado, dimensiones y DPI espec&iacute;ficos seg&uacute;n la plataforma objetivo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CONTACTO ─────────────────────────────────────────────── -->
+<section class="contacto" id="contacto">
+    <div class="container">
+        <div class="section-label"><i class="fas fa-envelope"></i> Contacto B2B</div>
+        <h2 class="section-title">Hablemos de tu <span class="gold">proyecto</span></h2>
+
+        <div class="contacto-grid">
+            <div class="contact-info">
+                <div class="ci-item">
+                    <div class="ci-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div>
+                        <h4>WhatsApp Corporativo</h4>
+                        <a href="https://wa.me/5214779203776" target="_blank" rel="noopener"><p>477-920-3776</p></a>
+                    </div>
+                </div>
+                <div class="ci-item">
+                    <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:foro7.producciones@hotmail.com"><p>foro7.producciones@hotmail.com</p></a>
+                    </div>
+                </div>
+                <div class="ci-item">
+                    <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <h4>Ubicaci&oacute;n</h4>
+                        <p>Padilla 112, Cumbres de Arbide<br>Le&oacute;n, Guanajuato, M&eacute;xico</p>
+                    </div>
+                </div>
+                <div class="ci-item">
+                    <div class="ci-icon"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <h4>Horario de atenci&oacute;n</h4>
+                        <p>Lunes–Viernes: 9 am – 7 pm<br>S&aacute;bados: 10 am – 5 pm</p>
+                    </div>
+                </div>
+                <div style="background: rgba(212,175,55,0.07); border: 1px solid rgba(212,175,55,0.25); border-radius: 8px; padding: 20px; margin-top: 8px;">
+                    <p style="color: var(--secondary); font-size: 0.85rem; font-weight: 700; margin-bottom: 8px;">&#x2605; PRIMERA CONSULTA GRATIS</p>
+                    <p style="color: var(--text-muted); font-size: 0.88rem;">Reuni&oacute;n de diagn&oacute;stico visual sin costo. Analizamos tus necesidades y te proponemos la estrategia &oacute;ptima para tu empresa.</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Solicitar cotizaci&oacute;n</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre / Empresa *</label>
+                        <input type="text" id="corp-nombre" placeholder="Ej: Calzado Mart&iacute;nez S.A." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Cargo</label>
+                        <input type="text" id="corp-cargo" placeholder="Ej: Director de Marketing">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Tel&eacute;fono / WhatsApp *</label>
+                        <input type="tel" id="corp-tel" placeholder="477-xxx-xxxx" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="corp-email" placeholder="contacto@miempresa.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Servicio de inter&eacute;s *</label>
+                    <select id="corp-servicio" required>
+                        <option value="">Selecciona un servicio...</option>
+                        <option value="producto">&#128246; Fotograf&iacute;a de Producto / Cat&aacute;logo</option>
+                        <option value="video">&#127916; Video Corporativo</option>
+                        <option value="ejecutiva">&#128100; Fotograf&iacute;a Ejecutiva / Equipo</option>
+                        <option value="evento">&#127914; Cobertura de Evento Empresarial</option>
+                        <option value="mensual">&#128247; Plan Contenido Mensual (PyME)</option>
+                        <option value="feria">&#127942; Cobertura de Feria (SAPICA / ANPIC)</option>
+                        <option value="drone">&#128641; Drone Corporativo</option>
+                        <option value="combo">&#10024; Paquete Combinado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Cu&eacute;ntanos tu proyecto *</label>
+                    <textarea id="corp-mensaje" placeholder="Industria o giro de tu empresa, tama&ntilde;o del proyecto, fechas, presupuesto aproximado..." required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button class="form-wa-btn" onclick="sendCorpWA()"><i class="fab fa-whatsapp"></i> Enviar por WhatsApp</button>
+                    <button class="form-email-btn" onclick="sendCorpEmail()"><i class="fas fa-envelope"></i> Enviar por Email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-logo">Foro <span>7</span> Producciones</div>
+            <nav class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="bodas.html">Bodas</a>
+                <a href="xv-anos.html">XV A&ntilde;os</a>
+                <a href="eventos.html">Eventos</a>
+                <a href="corporativo.html">Corporativo</a>
+            </nav>
+            <a href="https://wa.me/5214779203776" class="btn btn-wa" target="_blank" rel="noopener" style="font-size:12px; padding:10px 20px;">
+                <i class="fab fa-whatsapp"></i> 477-920-3776
+            </a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Foro 7 Producciones &mdash; Le&oacute;n, Guanajuato, M&eacute;xico</p>
+            <p>Fotograf&iacute;a y video corporativo para empresas en Le&oacute;n, Gto.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ── WA FLOAT ─────────────────────────────────────────────── -->
+<a href="https://wa.me/5214779203776?text=Hola,%20me%20interesan%20los%20servicios%20corporativos" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    // FAQ Toggle
+    function toggleFaq(btn) {
+        btn.classList.toggle('open');
+        const ans = btn.nextElementSibling;
+        ans.classList.toggle('open');
+    }
+
+    // WhatsApp message builder
+    function sendCorpWA() {
+        const nombre  = document.getElementById('corp-nombre').value.trim();
+        const cargo   = document.getElementById('corp-cargo').value.trim();
+        const tel     = document.getElementById('corp-tel').value.trim();
+        const servicio = document.getElementById('corp-servicio').value;
+        const mensaje = document.getElementById('corp-mensaje').value.trim();
+        if (!nombre || !tel || !servicio) { alert('Por favor completa los campos requeridos.'); return; }
+        const svcText = document.getElementById('corp-servicio').options[document.getElementById('corp-servicio').selectedIndex].text;
+        const txt = `Hola, soy ${nombre}${cargo ? ` (${cargo})` : ''}.%0A%0AMe interesa: ${svcText}%0A%0A${mensaje ? mensaje.replace(/\n/g,'%0A') : ''}%0A%0ATel: ${tel}`;
+        window.open(`https://wa.me/5214779203776?text=${txt}`, '_blank');
+    }
+
+    // Email builder
+    function sendCorpEmail() {
+        const nombre  = document.getElementById('corp-nombre').value.trim();
+        const cargo   = document.getElementById('corp-cargo').value.trim();
+        const email   = document.getElementById('corp-email').value.trim();
+        const tel     = document.getElementById('corp-tel').value.trim();
+        const servicio = document.getElementById('corp-servicio').value;
+        const mensaje = document.getElementById('corp-mensaje').value.trim();
+        if (!nombre || !tel || !servicio) { alert('Por favor completa los campos requeridos.'); return; }
+        const svcText = document.getElementById('corp-servicio').options[document.getElementById('corp-servicio').selectedIndex].text;
+        const subject = encodeURIComponent(`Cotización Corporativa — ${nombre}`);
+        const body = encodeURIComponent(`Empresa/Nombre: ${nombre}\nCargo: ${cargo}\nTeléfono: ${tel}\nEmail: ${email}\n\nServicio de interés: ${svcText}\n\n${mensaje}`);
+        window.location.href = `mailto:foro7.producciones@hotmail.com?subject=${subject}&body=${body}`;
+    }
+
+    // Preloader-less nav scroll highlight (simple)
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.nav');
+        nav.style.boxShadow = window.scrollY > 10 ? '0 4px 30px rgba(0,0,0,0.5)' : 'none';
+    });
+</script>
+</body>
+</html>
