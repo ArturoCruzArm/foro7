@@ -299,9 +299,39 @@
     .footer-cta a { display: inline-block; background: var(--red); color: #fff; text-decoration: none; padding: 13px 26px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; transition: background .2s, transform .15s; }
     .footer-cta a:hover { background: #c0040f; transform: translateY(-2px); }
     .footer-copy { max-width: 1140px; margin: 32px auto 0; padding: 20px 0 24px; border-top: 1px solid rgba(255,255,255,.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 9px; color: rgba(255,255,255,.2); letter-spacing: .08em; text-transform: uppercase; }
+
+    /* ── BOTÓN PDF FLOTANTE ── */
+    .pdf-fab {
+      position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+      background: var(--red); color: #fff; border: none; border-radius: 50px;
+      padding: 14px 22px; font-size: 11px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; cursor: pointer; font-family: var(--fb);
+      box-shadow: 0 6px 24px rgba(227,6,19,.5);
+      display: flex; align-items: center; gap: 8px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .pdf-fab:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(227,6,19,.55); }
+
+    /* ── PRINT ── */
+    @media print {
+      .pdf-fab, .topbar, .visit-count, .form-card,
+      .priv-visual, footer .footer-cta { display: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      body { background: white; }
+      .hero { min-height: auto; padding: 40px 28px; }
+      section { padding: 32px 0; }
+      .price-card, .hero, footer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .del-grid { grid-template-columns: repeat(4,1fr); }
+      .pricing-wrap, .priv-wrap, .faq-wrap { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
+
+<!-- BOTÓN PDF FLOTANTE -->
+<button class="pdf-fab" onclick="window.print()" title="Descargar cotización como PDF">
+  📄 Descargar cotización PDF
+</button>
 
 <!-- TOP BAR -->
 <div class="topbar">
@@ -409,28 +439,29 @@
           <div class="pi-item">
             <div class="pi-ico">📸</div>
             <div>
-              <div class="pi-name">Cobertura Fotográfica</div>
-              <div class="pi-desc">4 horas de cobertura · Selección y edición de 20 fotografías para redes sociales</div>
+              <div class="pi-name">Cobertura Fotográfica Completa</div>
+              <div class="pi-desc">5–6 horas de cobertura · ~500 fotos tomadas · Galería privada para que elijas · 15–20 editadas a tu gusto · Entrega ese mismo día</div>
             </div>
           </div>
           <div class="pi-item">
             <div class="pi-ico">🎬</div>
             <div>
-              <div class="pi-name">Video de Momentos</div>
-              <div class="pi-desc">Video highlights 2–3 min · MP4 HD · Ideal para Cooking Studios en juntas internas</div>
+              <div class="pi-name">Video Completo + Highlight con Música</div>
+              <div class="pi-desc">Video del evento completo (5–6 hrs) + highlight editado con música · Horizontal HD para juntas Cooking Studios · Entrega al día siguiente vía link privado</div>
             </div>
           </div>
         </div>
         <div class="pf">
           <div>
             <div class="pf-lbl">Inversión total</div>
-            <div class="pf-amt"><sup>$</sup>9,500<small>MXN</small></div>
+            <div class="pf-amt"><sup>$</sup>5,800<small>+ IVA</small></div>
           </div>
           <div class="pf-note">
-            <strong>Incluye</strong>
-            Galería digital privada<br>
-            Archivos alta y baja resolución<br>
-            Entrega en 5 días hábiles
+            <strong>Total con IVA</strong>
+            $6,728 MXN<br>
+            <strong style="margin-top:8px;">Entrega</strong>
+            Fotos: mismo día del evento<br>
+            Video: día siguiente vía link
           </div>
         </div>
       </div>
@@ -438,11 +469,11 @@
         <div class="inc-title">¿Qué incluye<br>el paquete?</div>
         <div class="inc-sub">Todo lo necesario para documentar el Tour Gastronómico y aprovechar el contenido para redes e internamente.</div>
         <div class="inc-list">
-          <div class="inc-item"><div class="inc-chk">✓</div><div><div class="inc-name">20 Fotografías editadas</div><div class="inc-detail">Retoque profesional · Optimizadas para Instagram y Facebook</div></div></div>
-          <div class="inc-item"><div class="inc-chk">✓</div><div><div class="inc-name">1 Video highlights 2–3 min</div><div class="inc-detail">Edición con música · Momentos clave del evento</div></div></div>
-          <div class="inc-item"><div class="inc-chk">✓</div><div><div class="inc-name">Galería digital privada</div><div class="inc-detail">Link privado · Descarga libre · Acceso controlado</div></div></div>
-          <div class="inc-item"><div class="inc-chk">✓</div><div><div class="inc-name">Alta y baja resolución</div><div class="inc-detail">Para impresión y publicación en redes</div></div></div>
-          <div class="inc-item"><div class="inc-chk">✓</div><div><div class="inc-name">Entrega en 5 días hábiles</div><div class="inc-detail">Contenido listo para publicar</div></div></div>
+          <div class="inc-item"><div class="inc-chk">✓</div><div><div class="inc-name">~500 fotos · tú eliges las mejores</div><div class="inc-detail">Galería privada web para selección libre · 15–20 editadas con retoque profesional</div></div></div>
+          <div class="inc-item"><div class="inc-chk">✓</div><div><div class="inc-name">Video completo del evento (5–6 hrs)</div><div class="inc-detail">Grabación íntegra + highlight editado con música · Horizontal HD para Cooking Studios</div></div></div>
+          <div class="inc-item"><div class="inc-chk">✓</div><div><div class="inc-name">Tomas de Dron 4K</div><div class="inc-detail">Cobertura aérea incluida sin costo adicional</div></div></div>
+          <div class="inc-item"><div class="inc-chk">✓</div><div><div class="inc-name">Entrega: fotos ese mismo día</div><div class="inc-detail">Video completo + highlight al día siguiente vía link privado</div></div></div>
+          <div class="inc-item"><div class="inc-chk">✓</div><div><div class="inc-name">USB con todo el material</div><div class="inc-detail">Opción de entrega física con fotos y video en USB incluida</div></div></div>
         </div>
       </div>
     </div>
@@ -456,10 +487,10 @@
       <div class="ln"></div><span class="lbl">03 — Entregables</span><div class="ln"></div>
     </div>
     <div class="del-grid">
-      <div class="del-card reveal"><span class="del-ico">📸</span><div class="del-num">20</div><div class="del-name">Fotografías Editadas</div><div class="del-desc">Retoque profesional, listas para redes sociales</div></div>
-      <div class="del-card reveal"><span class="del-ico">🎬</span><div class="del-num">1</div><div class="del-name">Video Highlights</div><div class="del-desc">2–3 min · MP4 HD con música y edición profesional</div></div>
-      <div class="del-card reveal"><span class="del-ico">🖼️</span><div class="del-num" style="font-size:32px;margin-bottom:10px">Galería</div><div class="del-name">Digital Privada</div><div class="del-desc">Link privado · Acceso solo para Thermomix México</div></div>
-      <div class="del-card reveal"><span class="del-ico">💾</span><div class="del-num" style="font-size:26px;margin-bottom:10px">Alta &amp;<br>Baja</div><div class="del-name">Resolución</div><div class="del-desc">Archivos para impresión y redes sociales</div></div>
+      <div class="del-card reveal"><span class="del-ico">📸</span><div class="del-num">~500</div><div class="del-name">Fotos Tomadas</div><div class="del-desc">Tú eliges las que más te gusten desde la galería privada</div></div>
+      <div class="del-card reveal"><span class="del-ico">✨</span><div class="del-num">15–20</div><div class="del-name">Fotos Editadas</div><div class="del-desc">Retoque profesional de las que selecciones · Mismo día</div></div>
+      <div class="del-card reveal"><span class="del-ico">🎬</span><div class="del-num" style="font-size:28px;margin-bottom:8px">Video<br>Completo</div><div class="del-name">+ Highlight</div><div class="del-desc">Evento íntegro + video resumen con música · Día siguiente</div></div>
+      <div class="del-card reveal"><span class="del-ico">🚁</span><div class="del-num" style="font-size:28px;margin-bottom:8px">Dron</div><div class="del-name">4K Incluido</div><div class="del-desc">Tomas aéreas del evento sin costo adicional</div></div>
     </div>
   </div>
 </section>
@@ -522,14 +553,14 @@
       <div class="ln"></div><span class="lbl">05 — Proceso de Entrega</span><div class="ln"></div>
     </div>
     <div class="tl reveal">
-      <div class="tl-step"><div class="tl-dot">📋</div><div class="tl-lbl">Día 0</div><div class="tl-val">Evento</div></div>
-      <div class="tl-step"><div class="tl-dot">🔍</div><div class="tl-lbl">Día 1–2</div><div class="tl-val">Selección &amp; Edición foto</div></div>
-      <div class="tl-step"><div class="tl-dot">✂️</div><div class="tl-lbl">Día 3–4</div><div class="tl-val">Edición de video</div></div>
-      <div class="tl-step"><div class="tl-dot">🔗</div><div class="tl-lbl">Día 5</div><div class="tl-val">Link galería privada</div></div>
+      <div class="tl-step"><div class="tl-dot">📋</div><div class="tl-lbl">Durante el evento</div><div class="tl-val">Cobertura 5–6 hrs + Dron 4K</div></div>
+      <div class="tl-step"><div class="tl-dot">🖼️</div><div class="tl-lbl">Mismo día</div><div class="tl-val">Galería privada · Tú eliges fotos</div></div>
+      <div class="tl-step"><div class="tl-dot">✨</div><div class="tl-lbl">Mismo día</div><div class="tl-val">15–20 fotos editadas entregadas</div></div>
+      <div class="tl-step"><div class="tl-dot">🎬</div><div class="tl-lbl">Día siguiente</div><div class="tl-val">Video completo + Highlight</div></div>
     </div>
     <p style="text-align:center;margin-top:36px;font-size:11px;color:var(--gray);line-height:1.8;">
-      Los 5 días hábiles corren a partir del día del evento.<br>
-      Recibirás un correo con el enlace a tu galería privada en foro7.invitados.org
+      Las fotos editadas se entregan el <strong style="color:var(--ink)">mismo día del evento</strong>.<br>
+      El video completo y el highlight se envían al <strong style="color:var(--ink)">día siguiente</strong> vía link privado en foro7.invitados.org
     </p>
   </div>
 </section>
