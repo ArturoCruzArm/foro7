@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio AICC México · Foro 7 Producciones</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html,body{height:100%;overflow:hidden;background:#08080f;color:#fff;font-family:'Montserrat',sans-serif;}
+
+    /* ── LAYOUT ── */
+    .wrap{
+      display:grid;
+      grid-template-rows:auto 1fr;
+      height:100vh;width:100vw;
+    }
+
+    /* ── HEADER ── */
+    .hdr{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:10px 24px;
+      background:linear-gradient(90deg,#0a0a14,#12121f);
+      border-bottom:1px solid rgba(212,175,55,.25);
+    }
+    .hdr-left{display:flex;align-items:center;gap:14px;}
+    .hdr-logo{height:36px;border-radius:3px;}
+    .hdr-brand{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.3rem;font-weight:600;color:#fff;
+    }
+    .hdr-brand em{color:#d4af37;font-style:italic;}
+    .hdr-sub{font-size:.65rem;color:rgba(255,255,255,.4);letter-spacing:.15em;text-transform:uppercase;}
+    .hdr-right{display:flex;align-items:center;gap:14px;}
+    .hdr-badge{
+      background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.35);
+      color:#d4af37;font-size:.6rem;font-weight:700;letter-spacing:.1em;
+      text-transform:uppercase;padding:4px 12px;border-radius:2px;
+    }
+    .hdr-cta{
+      display:inline-flex;align-items:center;gap:6px;
+      background:#25d366;color:#fff;font-size:.7rem;font-weight:600;
+      padding:7px 16px;border-radius:3px;text-decoration:none;
+      letter-spacing:.03em;
+    }
+    .hdr-cta:hover{opacity:.85;}
+
+    /* ── GRID PORTAFOLIO ── */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      grid-template-rows:1fr 1fr;
+      gap:3px;
+      padding:3px;
+      min-height:0;
+    }
+
+    /* la imagen 7 (ed3d...) es la principal 1-10, que ocupe más */
+    .cell{
+      position:relative;
+      overflow:hidden;
+      cursor:pointer;
+      border-radius:2px;
+      background:#111;
+    }
+    .cell:last-child{
+      /* imagen 7 en fila 2 col 4, o ajustar */
+    }
+    /* primera imagen (1-10) ocupa 2 columnas en fila 1 */
+    .cell:nth-child(1){ grid-column:span 2; }
+    /* última fila: 3 imágenes en 4 cols → la del medio ocupa 2 */
+    .cell:nth-child(5){ grid-column:span 2; }
+
+    .cell img{
+      width:100%;height:100%;
+      object-fit:contain;
+      background:#0a0a12;
+      transition:transform .4s ease, filter .4s ease;
+    }
+    .cell:hover img{
+      transform:scale(1.03);
+      filter:brightness(1.1);
+    }
+
+    /* overlay con label */
+    .cell-label{
+      position:absolute;bottom:0;left:0;right:0;
+      padding:8px 14px;
+      background:linear-gradient(transparent,rgba(0,0,0,.85));
+      font-size:.65rem;font-weight:600;color:rgba(255,255,255,.8);
+      letter-spacing:.06em;text-transform:uppercase;
+      pointer-events:none;
+      display:flex;align-items:center;gap:8px;
+    }
+    .cell-label i{color:#d4af37;font-size:.75rem;}
+    .cell-num{
+      position:absolute;top:8px;left:10px;
+      background:rgba(212,175,55,.9);color:#0a0a12;
+      font-size:.55rem;font-weight:700;padding:2px 7px;
+      border-radius:1px;letter-spacing:.05em;
+      pointer-events:none;
+    }
+
+    /* ── LIGHTBOX ── */
+    .lb{
+      position:fixed;inset:0;z-index:900;
+      background:rgba(4,4,10,.96);
+      display:none;align-items:center;justify-content:center;
+      backdrop-filter:blur(6px);
+    }
+    .lb.on{display:flex;}
+    .lb img{
+      max-width:96vw;max-height:94vh;
+      object-fit:contain;
+      border-radius:3px;
+      box-shadow:0 0 80px rgba(0,0,0,.7);
+    }
+    .lb-close{
+      position:absolute;top:14px;right:20px;
+      background:none;border:none;color:#fff;
+      font-size:1.8rem;cursor:pointer;opacity:.6;
+      transition:opacity .2s;z-index:910;
+    }
+    .lb-close:hover{opacity:1;}
+    .lb-nav{
+      position:absolute;top:50%;transform:translateY(-50%);
+      background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);
+      color:#d4af37;font-size:1.4rem;width:44px;height:44px;
+      border-radius:50%;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      transition:background .2s;z-index:910;
+    }
+    .lb-nav:hover{background:rgba(212,175,55,.3);}
+    .lb-prev{left:16px;}
+    .lb-next{right:16px;}
+    .lb-counter{
+      position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
+      font-size:.7rem;color:rgba(255,255,255,.5);letter-spacing:.1em;z-index:910;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px){
+      .grid{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:repeat(4,1fr);
+        overflow-y:auto;
+      }
+      .cell:nth-child(1){grid-column:span 2;}
+      .cell:nth-child(5){grid-column:span 1;}
+      .hdr{flex-wrap:wrap;gap:8px;padding:8px 14px;}
+      .hdr-sub{display:none;}
+    }
+    @media(max-width:540px){
+      .grid{
+        grid-template-columns:1fr;
+        grid-template-rows:repeat(7,1fr);
+      }
+      .cell:nth-child(1){grid-column:span 1;}
+      .hdr-badge{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="hdr-left">
+      <img class="hdr-logo" src="./logo.png" alt="Foro 7" onerror="this.style.display='none'">
+      <div>
+        <div class="hdr-brand">Portafolio <em>AICC México</em></div>
+        <div class="hdr-sub">Cobertura fotográfica y video · Eventos corporativos e industriales</div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <span class="hdr-badge">100 Fotografías de muestra</span>
+      <a class="hdr-cta" href="https://wa.me/524779203776?text=Hola%2C%20vi%20el%20portafolio%20AICC%20y%20me%20interesa" target="_blank">
+        <i class="fab fa-whatsapp"></i> Cotizar
+      </a>
+    </div>
+  </div>
+
+  <!-- GRID -->
+  <div class="grid" id="grid">
+
+    <!-- 1. Fotos 1–10: Principales -->
+    <div class="cell" onclick="openLb(0)">
+      <span class="cell-num">01 – 10</span>
+      <img src="../Downloads/aicc/thumb/ed3da0a0-a6d6-4e5a-96cb-473c34f7f653.webp"
+           data-full="../Downloads/aicc/ed3da0a0-a6d6-4e5a-96cb-473c34f7f653.webp" alt="">
+      <div class="cell-label"><i class="fas fa-microphone-alt"></i> Conferencias · Stands · Gala · Registro</div>
+    </div>
+
+    <!-- 2. Fotos 11–20 -->
+    <div class="cell" onclick="openLb(1)">
+      <span class="cell-num">11 – 20</span>
+      <img src="../Downloads/aicc/thumb/ChatGPT Image 22 jun 2026, 11_10_21.webp"
+           data-full="../Downloads/aicc/ChatGPT Image 22 jun 2026, 11_10_21.webp" alt="">
+      <div class="cell-label"><i class="fas fa-users"></i> Ponentes · Networking · Brindis · Clausura</div>
+    </div>
+
+    <!-- 3. Fotos 21–30 -->
+    <div class="cell" onclick="openLb(2)">
+      <span class="cell-num">21 – 30</span>
+      <img src="../Downloads/aicc/thumb/ChatGPT Image 22 jun 2026, 11_15_57.webp"
+           data-full="../Downloads/aicc/ChatGPT Image 22 jun 2026, 11_15_57.webp" alt="">
+      <div class="cell-label"><i class="fas fa-camera"></i> Behind the scenes · Gafetes · Firma · Drone</div>
+    </div>
+
+    <!-- 4. Fotos 31–40 -->
+    <div class="cell" onclick="openLb(3)">
+      <span class="cell-num">31 – 40</span>
+      <img src="../Downloads/aicc/thumb/ChatGPT Image 22 jun 2026, 11_15_31.webp"
+           data-full="../Downloads/aicc/ChatGPT Image 22 jun 2026, 11_15_31.webp" alt="">
+      <div class="cell-label"><i class="fas fa-award"></i> Registro · Traducción · Premiación · Grupo final</div>
+    </div>
+
+    <!-- 5. Fotos 1–30 grid completo -->
+    <div class="cell" onclick="openLb(4)">
+      <span class="cell-num">Resumen 1 – 30</span>
+      <img src="../Downloads/aicc/thumb/ChatGPT Image 22 jun 2026, 11_12_07.webp"
+           data-full="../Downloads/aicc/ChatGPT Image 22 jun 2026, 11_12_07.webp" alt="">
+      <div class="cell-label"><i class="fas fa-th"></i> Vista completa · 30 fotos del evento</div>
+    </div>
+
+    <!-- 6. Fotos 41–70 -->
+    <div class="cell" onclick="openLb(5)">
+      <span class="cell-num">41 – 70</span>
+      <img src="../Downloads/aicc/thumb/ChatGPT Image 22 jun 2026, 11_19_36.webp"
+           data-full="../Downloads/aicc/ChatGPT Image 22 jun 2026, 11_19_36.webp" alt="">
+      <div class="cell-label"><i class="fas fa-industry"></i> Exhibición · Producto · Keynote · Cierre</div>
+    </div>
+
+    <!-- 7. Fotos 71–100 -->
+    <div class="cell" onclick="openLb(6)">
+      <span class="cell-num">71 – 100</span>
+      <img src="../Downloads/aicc/thumb/ChatGPT Image 22 jun 2026, 11_19_45.webp"
+           data-full="../Downloads/aicc/ChatGPT Image 22 jun 2026, 11_19_45.webp" alt="">
+      <div class="cell-label"><i class="fas fa-glass-cheers"></i> Logística · Workshop · Cóctel · Gran final</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" onclick="closeLb()">&times;</button>
+  <button class="lb-nav lb-prev" onclick="navLb(-1)"><i class="fas fa-chevron-left"></i></button>
+  <button class="lb-nav lb-next" onclick="navLb(1)"><i class="fas fa-chevron-right"></i></button>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<script>
+const cells=document.querySelectorAll('.cell img');
+const fullSrcs=[...cells].map(i=>i.dataset.full);
+let cur=0;
+
+function openLb(i){
+  cur=i;
+  document.getElementById('lbImg').src=fullSrcs[cur];
+  document.getElementById('lbCounter').textContent=(cur+1)+' / '+fullSrcs.length;
+  document.getElementById('lb').classList.add('on');
+}
+function closeLb(){
+  document.getElementById('lb').classList.remove('on');
+  document.getElementById('lbImg').src='';
+}
+function navLb(d){
+  cur=(cur+d+fullSrcs.length)%fullSrcs.length;
+  document.getElementById('lbImg').src=fullSrcs[cur];
+  document.getElementById('lbCounter').textContent=(cur+1)+' / '+fullSrcs.length;
+}
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lb').classList.contains('on'))return;
+  if(e.key==='Escape')closeLb();
+  if(e.key==='ArrowLeft')navLb(-1);
+  if(e.key==='ArrowRight')navLb(1);
+});
+document.getElementById('lb').addEventListener('click',e=>{
+  if(e.target===document.getElementById('lb'))closeLb();
+});
+</script>
+
+</body>
+</html>
