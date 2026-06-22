@@ -10,6 +10,110 @@
     *{margin:0;padding:0;box-sizing:border-box;}
     html,body{height:100%;overflow:hidden;background:#08080f;color:#fff;font-family:'Montserrat',sans-serif;}
 
+    /* ── SPLASH SCREEN ── */
+    .splash{
+      position:fixed;inset:0;z-index:1000;
+      background:radial-gradient(ellipse at center,#0f0f1a 0%,#050508 70%);
+      display:flex;align-items:center;justify-content:center;
+      flex-direction:column;gap:0;
+      transition:opacity .8s ease,visibility .8s ease;
+    }
+    .splash.hide{opacity:0;visibility:hidden;pointer-events:none;}
+
+    .splash-logo{
+      width:90px;height:90px;border-radius:50%;
+      border:2px solid rgba(212,175,55,.4);
+      display:flex;align-items:center;justify-content:center;
+      margin-bottom:24px;
+      animation:pulse-glow 2s ease-in-out infinite;
+    }
+    .splash-logo img{height:54px;border-radius:50%;}
+    .splash-logo-fb{
+      font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;
+      color:#d4af37;display:none;
+    }
+
+    @keyframes pulse-glow{
+      0%,100%{box-shadow:0 0 20px rgba(212,175,55,.15);}
+      50%{box-shadow:0 0 40px rgba(212,175,55,.35);}
+    }
+
+    .splash-eyebrow{
+      font-size:.6rem;color:rgba(212,175,55,.7);letter-spacing:.35em;
+      text-transform:uppercase;font-weight:600;margin-bottom:6px;
+    }
+    .splash-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2.8rem;font-weight:300;color:#fff;
+      line-height:1.1;text-align:center;margin-bottom:4px;
+    }
+    .splash-title em{color:#d4af37;font-style:italic;font-weight:600;}
+    .splash-sub{
+      font-size:.75rem;color:rgba(255,255,255,.4);
+      letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;
+    }
+    .splash-song{
+      font-size:.6rem;color:rgba(255,255,255,.3);
+      letter-spacing:.06em;margin-bottom:28px;
+      display:flex;align-items:center;gap:6px;
+    }
+    .splash-song i{color:#d4af37;font-size:.7rem;}
+
+    .splash-enter{
+      background:linear-gradient(135deg,#d4af37,#b8941e);
+      color:#0a0a12;border:none;
+      padding:14px 48px;border-radius:4px;
+      font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:700;
+      letter-spacing:.12em;text-transform:uppercase;
+      cursor:pointer;
+      transition:transform .2s,box-shadow .2s;
+      box-shadow:0 4px 30px rgba(212,175,55,.3);
+    }
+    .splash-enter:hover{
+      transform:scale(1.05);
+      box-shadow:0 6px 40px rgba(212,175,55,.5);
+    }
+
+    .splash-skip{
+      margin-top:14px;
+      background:none;border:1px solid rgba(255,255,255,.15);
+      color:rgba(255,255,255,.4);padding:8px 24px;border-radius:3px;
+      font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:500;
+      letter-spacing:.08em;cursor:pointer;
+      transition:border-color .2s,color .2s;
+    }
+    .splash-skip:hover{border-color:rgba(255,255,255,.35);color:rgba(255,255,255,.6);}
+
+    /* ── MUSIC BTN (fixed, always visible after splash) ── */
+    .music-btn{
+      position:fixed;bottom:16px;right:16px;z-index:800;
+      width:42px;height:42px;border-radius:50%;
+      background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);
+      color:#d4af37;font-size:1rem;
+      display:none;align-items:center;justify-content:center;
+      cursor:pointer;transition:background .2s,transform .2s;
+      backdrop-filter:blur(8px);
+    }
+    .music-btn:hover{background:rgba(212,175,55,.3);transform:scale(1.1);}
+    .music-btn.visible{display:flex;}
+    .music-btn .eq{
+      display:flex;align-items:flex-end;gap:2px;height:14px;
+    }
+    .music-btn .eq span{
+      width:3px;background:#d4af37;border-radius:1px;
+      animation:eq-bar .8s ease-in-out infinite alternate;
+    }
+    .music-btn .eq span:nth-child(1){height:6px;animation-delay:0s;}
+    .music-btn .eq span:nth-child(2){height:10px;animation-delay:.15s;}
+    .music-btn .eq span:nth-child(3){height:4px;animation-delay:.3s;}
+    .music-btn .eq span:nth-child(4){height:8px;animation-delay:.45s;}
+    .music-btn.paused .eq span{animation:none;height:3px;}
+
+    @keyframes eq-bar{
+      0%{height:3px;}
+      100%{height:14px;}
+    }
+
     /* ── LAYOUT ── */
     .wrap{
       display:grid;
@@ -56,7 +160,6 @@
       min-height:0;
     }
 
-    /* la imagen 7 (ed3d...) es la principal 1-10, que ocupe más */
     .cell{
       position:relative;
       overflow:hidden;
@@ -64,12 +167,7 @@
       border-radius:2px;
       background:#111;
     }
-    .cell:last-child{
-      /* imagen 7 en fila 2 col 4, o ajustar */
-    }
-    /* primera imagen (1-10) ocupa 2 columnas en fila 1 */
     .cell:nth-child(1){ grid-column:span 2; }
-    /* última fila: 3 imágenes en 4 cols → la del medio ocupa 2 */
     .cell:nth-child(5){ grid-column:span 2; }
 
     .cell img{
@@ -83,7 +181,6 @@
       filter:brightness(1.1);
     }
 
-    /* overlay con label */
     .cell-label{
       position:absolute;bottom:0;left:0;right:0;
       padding:8px 14px;
@@ -150,6 +247,7 @@
       .cell:nth-child(5){grid-column:span 1;}
       .hdr{flex-wrap:wrap;gap:8px;padding:8px 14px;}
       .hdr-sub{display:none;}
+      .splash-title{font-size:2rem;}
     }
     @media(max-width:540px){
       .grid{
@@ -158,10 +256,40 @@
       }
       .cell:nth-child(1){grid-column:span 1;}
       .hdr-badge{display:none;}
+      .splash-title{font-size:1.6rem;}
     }
   </style>
 </head>
 <body>
+
+<!-- AUDIO -->
+<audio id="music" src="./images/aicc/construimos-juntos.mp3" preload="auto"></audio>
+
+<!-- SPLASH SCREEN -->
+<div class="splash" id="splash">
+  <div class="splash-logo">
+    <img src="./logo.png" alt="Foro 7"
+         onerror="this.style.display='none';document.querySelector('.splash-logo-fb').style.display='flex'">
+    <span class="splash-logo-fb">F7</span>
+  </div>
+  <div class="splash-eyebrow">Foro 7 Producciones presenta</div>
+  <div class="splash-title">Portafolio <em>AICC México</em></div>
+  <div class="splash-sub">Cobertura Fotográfica y Video · Eventos Corporativos</div>
+  <div class="splash-song"><i class="fas fa-music"></i> ♪ Construimos Juntos — Tema AICC 25 Aniversario</div>
+  <button class="splash-enter" onclick="enterSite(true)">
+    <i class="fas fa-play"></i>&nbsp; Entrar con Música
+  </button>
+  <button class="splash-skip" onclick="enterSite(false)">
+    Entrar sin música
+  </button>
+</div>
+
+<!-- MUSIC BUTTON -->
+<button class="music-btn paused" id="musicBtn" onclick="toggleMusic()">
+  <div class="eq">
+    <span></span><span></span><span></span><span></span>
+  </div>
+</button>
 
 <div class="wrap">
 
@@ -185,7 +313,6 @@
   <!-- GRID -->
   <div class="grid" id="grid">
 
-    <!-- 1. Fotos 1–10: Principales -->
     <div class="cell" onclick="openLb(0)">
       <span class="cell-num">01 – 10</span>
       <img src="./images/aicc/thumb/aicc-01-10.webp"
@@ -193,7 +320,6 @@
       <div class="cell-label"><i class="fas fa-microphone-alt"></i> Conferencias · Stands · Gala · Registro</div>
     </div>
 
-    <!-- 2. Fotos 11–20 -->
     <div class="cell" onclick="openLb(1)">
       <span class="cell-num">11 – 20</span>
       <img src="./images/aicc/thumb/aicc-11-20.webp"
@@ -201,7 +327,6 @@
       <div class="cell-label"><i class="fas fa-users"></i> Ponentes · Networking · Brindis · Clausura</div>
     </div>
 
-    <!-- 3. Fotos 21–30 -->
     <div class="cell" onclick="openLb(2)">
       <span class="cell-num">21 – 30</span>
       <img src="./images/aicc/thumb/aicc-21-30.webp"
@@ -209,7 +334,6 @@
       <div class="cell-label"><i class="fas fa-camera"></i> Behind the scenes · Gafetes · Firma · Drone</div>
     </div>
 
-    <!-- 4. Fotos 31–40 -->
     <div class="cell" onclick="openLb(3)">
       <span class="cell-num">31 – 40</span>
       <img src="./images/aicc/thumb/aicc-31-40.webp"
@@ -217,7 +341,6 @@
       <div class="cell-label"><i class="fas fa-award"></i> Registro · Traducción · Premiación · Grupo final</div>
     </div>
 
-    <!-- 5. Fotos 1–30 grid completo -->
     <div class="cell" onclick="openLb(4)">
       <span class="cell-num">Resumen 1 – 30</span>
       <img src="./images/aicc/thumb/aicc-resumen.webp"
@@ -225,7 +348,6 @@
       <div class="cell-label"><i class="fas fa-th"></i> Vista completa · 30 fotos del evento</div>
     </div>
 
-    <!-- 6. Fotos 41–70 -->
     <div class="cell" onclick="openLb(5)">
       <span class="cell-num">41 – 70</span>
       <img src="./images/aicc/thumb/aicc-41-70.webp"
@@ -233,7 +355,6 @@
       <div class="cell-label"><i class="fas fa-industry"></i> Exhibición · Producto · Keynote · Cierre</div>
     </div>
 
-    <!-- 7. Fotos 71–100 -->
     <div class="cell" onclick="openLb(6)">
       <span class="cell-num">71 – 100</span>
       <img src="./images/aicc/thumb/aicc-71-100.webp"
@@ -254,6 +375,41 @@
 </div>
 
 <script>
+/* ── MUSIC ── */
+const audio=document.getElementById('music');
+const musicBtn=document.getElementById('musicBtn');
+let playing=false;
+
+function enterSite(withMusic){
+  document.getElementById('splash').classList.add('hide');
+  musicBtn.classList.add('visible');
+  if(withMusic){
+    audio.play().then(()=>{
+      playing=true;
+      musicBtn.classList.remove('paused');
+    }).catch(()=>{});
+  }
+}
+
+function toggleMusic(){
+  if(playing){
+    audio.pause();
+    playing=false;
+    musicBtn.classList.add('paused');
+  }else{
+    audio.play().then(()=>{
+      playing=true;
+      musicBtn.classList.remove('paused');
+    }).catch(()=>{});
+  }
+}
+
+audio.addEventListener('ended',()=>{
+  playing=false;
+  musicBtn.classList.add('paused');
+});
+
+/* ── LIGHTBOX ── */
 const cells=document.querySelectorAll('.cell img');
 const fullSrcs=[...cells].map(i=>i.dataset.full);
 let cur=0;
@@ -274,10 +430,11 @@ function navLb(d){
   document.getElementById('lbCounter').textContent=(cur+1)+' / '+fullSrcs.length;
 }
 document.addEventListener('keydown',e=>{
-  if(!document.getElementById('lb').classList.contains('on'))return;
-  if(e.key==='Escape')closeLb();
-  if(e.key==='ArrowLeft')navLb(-1);
-  if(e.key==='ArrowRight')navLb(1);
+  if(document.getElementById('lb').classList.contains('on')){
+    if(e.key==='Escape')closeLb();
+    if(e.key==='ArrowLeft')navLb(-1);
+    if(e.key==='ArrowRight')navLb(1);
+  }
 });
 document.getElementById('lb').addEventListener('click',e=>{
   if(e.target===document.getElementById('lb'))closeLb();
