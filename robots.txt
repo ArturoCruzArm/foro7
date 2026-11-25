@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /cotizacion-aicc.html
+Disallow: /cotizacion-thermomix.html
+Disallow: /portafolio-aicc.html
+Disallow: /nuevo-vallarta.html
+
+Sitemap: https://foro7.invitados.org/sitemap.xml

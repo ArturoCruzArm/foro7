@@ -5,9 +5,7 @@ var SB='https://nzpujmlienzfetqcgsxz.supabase.co';
 var K='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im56cHVqbWxpZW56ZmV0cWNnc3h6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2ODYzMzYsImV4cCI6MjA5MDI2MjMzNn0.xl3lsb-KYj5tVLKTnzpbsdEGoV9ySnswH4eyRuyEH1s';
 var H={'apikey':K,'Authorization':'Bearer '+K,'Content-Type':'application/json'};
 var URLS=[
-  {url:'https://foro7.invitados.org',          label:'foro7.invitados.org'},
-  {url:'https://invitados.org',                label:'invitados.org'},
-  {url:'https://producciones-foro7.invitados.org', label:'Producciones Foro\u00a07'}
+  {url:'https://foro7.invitados.org', label:'Foro 7 Producciones · Fotografía y video en León'}
 ];
 function sid(){var s=localStorage.getItem('foro7_sid');if(!s){s=crypto.randomUUID();localStorage.setItem('foro7_sid',s);}return s;}
 function slug(){return(window.RSVP_CONFIG&&window.RSVP_CONFIG.slug)||(window.EVENT_CONFIG&&window.EVENT_CONFIG.slug)||'';}
